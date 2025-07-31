@@ -1,0 +1,58 @@
+/* --- THE NEW REDESIGNED SERVICES PAGE --- */
+
+/* 1. The Full-Page Linear Gradient Background */
+.services-page-redesigned {
+    /* This subtle gradient goes from your light blue brand color to a clean white */
+    background: linear-gradient(180deg, #E0F0FF 0%, rgba(255, 255, 255, 1) 50%);
+}
+
+/* 2. A wrapper to add space between the hero and the content panels */
+.services-main-area {
+    padding: 5rem 1rem;
+}
+
+/* 3. The "Frosted Glass" / Floating Panel Style */
+.services-content-panel {
+    /* This is the key to the effect */
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    backdrop-filter: blur(12px); /* The blur effect */
+    -webkit-backdrop-filter: blur(12px); /* For Safari compatibility */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 91, 150, 0.15); /* A soft shadow to lift the panel */
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Add space between the two panels */
+.services-content-panel:not(:last-child) {
+    margin-bottom: 4rem;
+}
+
+/* 4. Styling the content inside the panels */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--navbar-text);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Responsive adjustments for the panels */
+@media screen and (max-width: 768px) {
+    .services-main-area {
+        padding: 4rem 1rem;
+    }
+    .services-content-panel {
+        padding: 2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}

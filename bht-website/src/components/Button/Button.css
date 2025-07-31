@@ -1,0 +1,77 @@
+:root {
+  --btn-primary-bg: var(--accent-gold);
+  --btn-primary-text: var(--navbar-text);
+  --btn-primary-hover-bg: #eab308;
+
+  --btn-outline-text: var(--primary-blue);
+  --btn-outline-border: var(--primary-blue);
+  --btn-outline-hover-bg: var(--primary-blue);
+  --btn-outline-hover-text: var(--clean-white);
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-main);
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease-out;
+}
+
+/* Primary Button Style */
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 2px solid var(--btn-primary-bg);
+}
+
+.btn--primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+  border-color: var(--btn-primary-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline Button Style */
+.btn--outline {
+  background-color: transparent;
+  color: var(--btn-outline-text);
+  border: 2px solid var(--btn-outline-border);
+}
+
+.btn--outline:hover {
+  background-color: var(--btn-outline-hover-bg);
+  color: var(--btn-outline-hover-text);
+  border-color: var(--btn-outline-hover-bg);
+}
+
+/* Button Sizes */
+.btn--medium {
+  padding: 10px 22px;
+  font-size: 1rem;
+}
+
+.btn--large {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+/* ... (at the bottom of the file) ... */
+
+/* Light Outline Button for Dark Backgrounds */
+.btn--outline-light {
+  background-color: transparent;
+  color: var(--clean-white);
+  border: 2px solid var(--clean-white);
+}
+
+.btn--outline-light:hover {
+  background-color: var(--clean-white);
+  color: var(--brand-green-dark);
+}

@@ -1,0 +1,143 @@
+.navbar {
+  /* --- THE BHT CORPORATION BRAND GRADIENT --- */
+  /* This gradient uses YOUR brand colors. It starts with your light blue tint,
+     has a defined transition zone, and ends with your primary dark blue. */
+  background: linear-gradient(to right, 
+    #E0F0FF 30%, 
+    #005B96 55%
+  );
+  
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- LOGO STYLING (ON THE LIGHT SIDE) --- */
+.navbar-left {
+  flex: 1; /* Allows it to take up space on the left */
+}
+
+.navbar-logo {
+  /* Logo text is your dark brand navy for visibility on the light blue background */
+  color: var(--navbar-text);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* --- MENU STYLING (ON THE DARK SIDE) --- */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  gap: 1rem;
+}
+
+.nav-item {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  /* Menu text is white for visibility on the dark blue background */
+  color: #e0e0e0; /* A soft white */
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-bottom: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-out;
+}
+
+.nav-link:hover {
+  color: var(--clean-white);
+  /* The hover highlight uses YOUR brand's Accent Gold */
+  border-bottom: 4px solid var(--accent-gold);
+}
+
+.nav-link.active {
+  color: var(--clean-white);
+  font-weight: 700;
+  border-bottom: 4px solid var(--accent-gold);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  /* Icon must be white to be seen on the blue background on mobile */
+  color: var(--clean-white);
+}
+
+/* --- Responsive Styles for Mobile --- */
+@media screen and (max-width: 960px) {
+  /* On mobile, we use the solid primary blue for a clean look */
+  .navbar {
+    background: var(--primary-blue);
+  }
+  
+  .navbar-logo {
+    /* Logo must be white on mobile to be visible on the dark background */
+    color: var(--clean-white);
+  }
+
+  .navbar-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .nav-menu {
+    display: none; /* Hide the desktop menu initially */
+  }
+
+  /* This is the slide-out menu */
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: var(--primary-blue);
+    padding-top: 2rem;
+  }
+
+  .nav-item, .nav-btn { width: 100%; justify-content: center; }
+  .nav-link { width: 100%; text-align: center; padding: 1.5rem; }
+  .nav-link:hover, .nav-link.active { border-bottom: none; background: #004a7c; border-radius: 5px; }
+
+  .menu-icon {
+    display: block;
+  }
+}

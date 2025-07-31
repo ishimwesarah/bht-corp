@@ -1,0 +1,38 @@
+.testimonial-card {
+  background: var(--clean-white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+  border-top: 5px solid var(--accent-gold);
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: var(--neutral-gray);
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Ensures cards have same height in a grid */
+}
+
+.testimonial-author {
+  text-align: right;
+}
+
+.author-name {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.author-company {
+  font-size: 0.9rem;
+  color: var(--neutral-gray);
+}

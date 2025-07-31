@@ -1,0 +1,33 @@
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1.5rem 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question h4 {
+  color: var(--navbar-text);
+  margin-bottom: 0;
+  padding-right: 1rem;
+}
+
+.faq-icon {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+
+.faq-answer {
+  overflow: hidden; /* Crucial for height animation */
+}
+
+.faq-answer p {
+  padding-top: 1rem;
+  margin-bottom: 0;
+  color: var(--neutral-gray);
+  line-height: 1.8;
+}

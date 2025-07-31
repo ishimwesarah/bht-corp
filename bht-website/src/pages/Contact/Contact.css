@@ -1,0 +1,116 @@
+.contact-hero {
+  background-color: var(--light-gray-bg);
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.contact-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 5rem 2rem;
+}
+
+.contact-info h3 {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.info-list {
+  list-style: none;
+  margin: 2rem 0;
+}
+.info-list li {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+.info-list li svg {
+  color: var(--accent-gold);
+  margin-right: 1rem;
+  font-size: 1.3rem;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.contact-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--navbar-text);
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: var(--font-family-main);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.submit-button {
+  background-color: var(--primary-blue);
+  color: var(--clean-white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  align-self: flex-start;
+}
+.submit-button:hover {
+  background-color: #004a7c; /* Darker blue */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+  .contact-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Responsive Styles for Contact Page --- */
+@media (max-width: 960px) {
+  .contact-main {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .contact-hero {
+        padding: 4rem 1rem;
+    }
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+    .contact-main {
+        padding: 3rem 1.5rem;
+    }
+    .submit-button {
+        width: 100%;
+        text-align: center;
+    }
+}

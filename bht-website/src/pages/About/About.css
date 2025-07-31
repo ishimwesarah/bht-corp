@@ -1,0 +1,135 @@
+.about-hero {
+  background-color: var(--primary-blue);
+  color: var(--clean-white);
+  text-align: center;
+  padding: 6rem 0;
+}
+.about-hero h1 {
+  color: var(--clean-white);
+}
+.about-hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding: 5rem 2rem;
+}
+
+.about-section {
+  margin-bottom: 5rem;
+}
+
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.about-section h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-section p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.business-structure {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+.business-structure .structure-text, .business-structure .structure-image {
+    flex: 1;
+}
+
+.business-structure blockquote {
+    background-color: var(--light-gray-bg);
+    border-left: 5px solid var(--accent-gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--primary-blue);
+}
+.business-structure blockquote span {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Team Section */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-member-card {
+  background: var(--clean-white);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-member-card .team-member-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem auto;
+}
+.team-member-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.team-member-card h3 {
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+
+.team-member-card span {
+  display: block;
+  color: var(--accent-gold);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .business-structure {
+        flex-direction: column;
+    }
+}

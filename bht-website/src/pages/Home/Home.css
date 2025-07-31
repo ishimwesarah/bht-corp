@@ -1,0 +1,165 @@
+/* src/pages/Home/Home.css */
+
+/* --- Hero Section --- */
+.hero-section {
+  background-image: url('../../assets/home.jpg'); 
+  background-color: var(--primary-blue); 
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  position: relative;
+  color: var(--clean-white);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* --- FINAL GRADIENT: DARK ON THE LEFT, FADING TO LIGHT ON THE RIGHT --- */
+  /* This gradient starts with your dark brand color on the left and fades
+     out towards the right, ensuring the left-aligned text is always readable. */
+  background: linear-gradient(to right, 
+    rgba(0, 91, 150, 0.9) 20%, 
+    rgba(0, 91, 150, 0.4) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  
+  /* Text is aligned to the left where the background is darkest */
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--clean-white);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.hero-motto {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Services Overview Section --- */
+.services-overview-section {
+  text-align: center;
+}
+
+.services-overview-section h2 {
+  margin-bottom: 3rem;
+}
+
+.services-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-us-section {
+  background-color: var(--light-gray-bg);
+}
+
+.why-choose-us-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.feature-item h4 {
+  font-size: 1.3rem;
+  color: var(--primary-blue);
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+
+/* --- Responsive styles for Home Page --- */
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle, .hero-motto {
+    font-size: 1.1rem;
+  }
+  section {
+    padding: 4rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* On mobile, we revert to centered text for a better layout on narrow screens */
+  .hero-content {
+      text-align: center;
+  }
+  .hero-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  /* On mobile, we use a simpler, more solid overlay for max readability */
+  .hero-overlay {
+      background: rgba(0, 91, 150, 0.8);
+  }
+  .hero-section {
+    height: 85vh;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}

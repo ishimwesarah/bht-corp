@@ -1,0 +1,68 @@
+.top-bar {
+  background-color: var(--navbar-text);
+  color: var(--clean-white);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-contact {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+  color: var(--accent-gold);
+}
+
+.contact-item span {
+    /* Hide text on very small screens if needed */
+}
+
+.top-bar-socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-bar-socials a {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.top-bar-socials a:hover {
+  color: var(--accent-gold);
+  transform: scale(1.2);
+}
+
+/* --- Responsive Styles for the Top Bar --- */
+@media screen and (max-width: 768px) {
+  .top-bar-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-item span {
+        display: none; /* Hides the text on mobile, leaving only the icon */
+    }
+    .top-bar-contact {
+        gap: 1rem;
+    }
+}

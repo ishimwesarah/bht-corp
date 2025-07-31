@@ -1,0 +1,56 @@
+.service-card {
+  background-color: var(--clean-white);
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Fallback for non-JS */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- NEW STYLES START HERE --- */
+
+.service-card-image-container {
+  width: 100%;
+  /* Define a fixed aspect ratio for consistency */
+  height: 180px; 
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures the image respects the border-radius */
+}
+
+.service-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is key: it scales the image to fill the container without distortion */
+}
+
+/* --- NEW STYLES END HERE --- */
+
+
+.service-card h3 {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+    flex-grow: 1; 
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  align-self: flex-start;
+}
+
+.card-link::after {
+  content: ' →';
+  transition: margin-left 0.3s ease;
+}
+
+.card-link:hover::after {
+  margin-left: 5px;
+}

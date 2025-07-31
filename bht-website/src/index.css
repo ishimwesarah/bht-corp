@@ -1,0 +1,68 @@
+/* src/index.css */
+
+/* Import a professional font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables for your Color Palette --- */
+:root {
+  --primary-blue: #005B96;
+  --accent-gold: #F4C430;
+  --neutral-gray: #4F4F4F;
+  --support-green: #3CB371;
+  --clean-white: #FFFFFF;
+  --light-gray-bg: #F5F5F5;
+  --navbar-text: #1a1a40; /* Specific navy blue from your request */
+  --font-family-main: 'Poppins', sans-serif;
+}
+
+/* --- CSS Reset and Global Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-main);
+  background-color: var(--clean-white);
+  color: var(--neutral-gray);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--navbar-text);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-gold);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+}

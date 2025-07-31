@@ -1,0 +1,65 @@
+.service-preview-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--clean-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%; /* Make cards in a row the same height */
+}
+
+.service-preview-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 91, 150, 0.12);
+  border-color: var(--primary-blue);
+}
+
+.card-icon-wrapper {
+  background: linear-gradient(to top right, var(--primary-blue), #4F89C8);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  color: var(--navbar-text);
+  margin-bottom: 0.75rem;
+}
+
+.card-content p {
+  color: var(--neutral-gray);
+  line-height: 1.6;
+  flex-grow: 1; /* Pushes the 'Learn More' to the bottom */
+}
+
+.card-learn-more {
+  margin-top: 1rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-preview-card:hover .card-learn-more {
+  opacity: 1;
+  transform: translateX(0);
+}

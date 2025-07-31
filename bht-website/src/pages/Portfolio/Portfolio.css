@@ -1,0 +1,29 @@
+.portfolio-hero {
+  /* Using your brand's dark gradient for a professional feel */
+  background: linear-gradient(to bottom, var(--primary-blue), var(--navbar-text));
+  color: var(--clean-white);
+  text-align: center;
+  padding: 6rem 1rem;
+}
+.portfolio-hero h1 {
+  color: var(--clean-white);
+  font-size: 3rem;
+}
+.portfolio-hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 1rem auto 0 auto;
+  color: #e0e0e0;
+}
+
+.portfolio-grid-section {
+  padding: 5rem 0;
+  background-color: var(--light-gray-bg);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
