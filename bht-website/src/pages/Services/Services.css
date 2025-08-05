@@ -1,58 +1,157 @@
-/* --- THE NEW REDESIGNED SERVICES PAGE --- */
+/* ==========================================================================
+   BHT Corporation - Professional Service Explorer Page (Final)
+   ========================================================================== */
 
-/* 1. The Full-Page Linear Gradient Background */
-.services-page-redesigned {
-    /* This subtle gradient goes from your light blue brand color to a clean white */
-    background: linear-gradient(180deg, #E0F0FF 0%, rgba(255, 255, 255, 1) 50%);
+.services-page-container {
+  background-color: var(--light-gray-bg);
 }
 
-/* 2. A wrapper to add space between the hero and the content panels */
-.services-main-area {
-    padding: 5rem 1rem;
+.services-content-wrapper {
+  padding: 5rem 0;
 }
 
-/* 3. The "Frosted Glass" / Floating Panel Style */
-.services-content-panel {
-    /* This is the key to the effect */
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
-    backdrop-filter: blur(12px); /* The blur effect */
-    -webkit-backdrop-filter: blur(12px); /* For Safari compatibility */
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(0, 91, 150, 0.15); /* A soft shadow to lift the panel */
-    padding: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
+/* --- Tab Styling --- */
+.services-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--neutral-gray);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.tab-btn:hover {
+  color: var(--navbar-text);
+}
+.tab-btn.active {
+  color: var(--primary-blue);
+}
+.tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  height: 3px;
+  background-color: var(--primary-blue);
+  border-radius: 3px;
+  transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Add space between the two panels */
-.services-content-panel:not(:last-child) {
-    margin-bottom: 4rem;
+/* --- Main Content Grid Layout --- */
+.services-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: flex-start;
 }
 
-/* 4. Styling the content inside the panels */
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: var(--navbar-text);
+/* --- Service List (Left Column) --- */
+.service-list-column {
+  /* --- THIS IS THE CRUCIAL FIX FOR DESKTOP --- */
+  overflow-y: auto; /* Adds a scrollbar ONLY if the content is taller than the container */
+  /* This constrains the height relative to the viewport, making it scrollable.
+     120px for the sticky top offset + 120px for page padding */
+  max-height: calc(100vh - 240px);
+  padding-right: 1rem; /* Adds space for the scrollbar so it doesn't overlap content */
 }
 
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+.service-list-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--clean-white);
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+.service-list-item:last-child {
+  margin-bottom: 0;
+}
+.service-list-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 91, 150, 0.08);
+}
+.service-list-item.active {
+  background-color: #E0F0FF;
+  border-color: var(--primary-blue);
+  box-shadow: 0 8px 20px rgba(0, 91, 150, 0.1);
+}
+.service-list-icon-wrapper {
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+}
+.service-list-text h4 {
+  color: var(--navbar-text);
+  margin: 0 0 0.5rem 0;
+}
+.service-list-text p {
+  color: var(--neutral-gray);
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-/* Responsive adjustments for the panels */
-@media screen and (max-width: 768px) {
-    .services-main-area {
-        padding: 4rem 1rem;
-    }
-    .services-content-panel {
-        padding: 2rem;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
+/* --- Service Detail Pane (Right Column) --- */
+.service-detail-pane {
+  position: sticky;
+  top: 120px;
+}
+.detail-pane-image-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  margin-bottom: 2rem;
+  height: 20rem;
+}
+.detail-pane-image-frame img {
+  width: 100%;
+  height: auto;
+  display:block;
+}
+.detail-pane-content h3 {
+  color: var(--navbar-text);
+  margin-bottom: 1rem;
+}
+.deliverables-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.deliverables-list li {
+  color: var(--neutral-gray);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.deliverables-list li svg {
+  color: var(--support-green);
+  font-size: 1.2rem;
+}
+
+/* --- Responsive Styles --- */
+@media screen and (max-width: 960px) {
+  .services-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-detail-pane {
+    position: static; /* Unstick the right pane on mobile */
+    margin-top: 2rem;
+  }
+
+  /* --- THIS IS THE CRUCIAL FIX FOR MOBILE --- */
+  .service-list-column {
+    /* We MUST disable the desktop scrolling behavior on mobile */
+    overflow-y: visible;
+    max-height: none;
+    padding-right: 0;
+  }
 }

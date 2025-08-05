@@ -1,0 +1,108 @@
+.search-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 28, 51, 0.7); /* Dark semi-transparent background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.search-modal-content {
+  width: 100%;
+  max-width: 700px;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--clean-white);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.search-input-icon {
+  font-size: 1.5rem;
+  color: var(--neutral-gray);
+  margin-right: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  color: var(--navbar-text);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--neutral-gray);
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: var(--primary-blue);
+}
+
+.search-results-container {
+  margin-top: 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.search-result-item:hover {
+  background-color: var(--clean-white);
+  transform: scale(1.02);
+}
+
+.result-icon {
+  font-size: 2rem;
+  color: var(--primary-blue);
+}
+
+.result-text h4 {
+  color: var(--navbar-text);
+  margin-bottom: 0.25rem;
+}
+.result-text p {
+  color: var(--neutral-gray);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.no-results {
+  color: var(--clean-white);
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.search-modal-footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}

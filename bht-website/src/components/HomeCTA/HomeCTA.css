@@ -1,0 +1,19 @@
+.home-cta-section {
+  background: linear-gradient(to right, var(--primary-blue), var(--navbar-text));
+  padding: 5rem 1rem;
+  text-align: center;
+  color: var(--clean-white);
+}
+
+.home-cta-content h2 {
+  color: var(--clean-white);
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.home-cta-content p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}

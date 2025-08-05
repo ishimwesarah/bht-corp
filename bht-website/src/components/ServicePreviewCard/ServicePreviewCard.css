@@ -1,14 +1,15 @@
 .service-preview-card {
+  position: relative; /* Needed for positioning the absolute arrow */
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  background: var(--clean-white);
+  background: var(--clean-white); /* Changed from transparent for better contrast on the gradient */
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e0e0e0;
-  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+  padding: 1.5rem; /* Reduced padding to make it smaller */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  height: 100%; /* Make cards in a row the same height */
+  height: 100%;
 }
 
 .service-preview-card:hover {
@@ -20,46 +21,45 @@
 .card-icon-wrapper {
   background: linear-gradient(to top right, var(--primary-blue), #4F89C8);
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px; /* Smaller icon wrapper */
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .card-icon {
-  font-size: 1.8rem;
-}
-
-.card-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  font-size: 1.5rem; /* Smaller icon */
 }
 
 .card-content h3 {
   color: var(--navbar-text);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem; /* Smaller font */
 }
 
 .card-content p {
   color: var(--neutral-gray);
-  line-height: 1.6;
-  flex-grow: 1; /* Pushes the 'Learn More' to the bottom */
+  line-height: 1.5; /* Tighter line height */
+  font-size: 0.9rem; /* Smaller font */
+  margin: 0;
 }
 
-.card-learn-more {
-  margin-top: 1rem;
+/* --- The new hover arrow styling --- */
+.card-hover-arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
   color: var(--primary-blue);
-  font-weight: 600;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(-15px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.service-preview-card:hover .card-learn-more {
+.service-preview-card:hover .card-hover-arrow {
   opacity: 1;
   transform: translateX(0);
 }

@@ -2,17 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Home.css';
 
-// Import our custom components
-import Button from '../../components/Button/Button';
-import ServiceCard from '../../components/ServiceCard/ServiceCard';
-import TestimonialCard from '../../components/TestimonialCard/TestimonialCard';
+// Import all the components that make up the Home page
 import HeroSlider from '../../components/HeroSlider/HeroSlider';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
+import TestimonialsScroller from '../../components/TestimonialsScroller/TestimonialsScroller';
+import HomeCTA from '../../components/HomeCTA/HomeCTA';
+import PartnersSection from '../../components/PartnersSection/PartnersSection';
 
-// Import images for the cards
+
 import techImage from '../../assets/techicon.jpg';
 import designImage from '../../assets/home.jpg';
 
-// Animation variants
+
 const sectionVariant = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
@@ -38,10 +39,10 @@ const itemVariant = {
 const Home = () => {
   return (
     <div className="home-page">
-      {/* --- The Hero Slider is the first thing on the page --- */}
+      {/* 1. The main hero slider at the top */}
       <HeroSlider />
 
-      {/* --- Services Overview Section --- */}
+      {/* 2. Services Overview Section */}
       <motion.section 
         className="services-overview-section container"
         variants={sectionVariant}
@@ -68,7 +69,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* --- Why Choose Us Section --- */}
+     
       <motion.section 
         className="why-choose-us-section"
         variants={sectionVariant}
@@ -95,39 +96,15 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* --- Testimonials Section --- */}
-      <motion.section 
-        className="testimonials-section container"
-        variants={sectionVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <motion.h2 variants={itemVariant}>What Our Clients Say</motion.h2>
-        <div className="testimonials-grid">
-          <motion.div variants={itemVariant}>
-            <TestimonialCard 
-              quote="BHT Corporation delivered a website that exceeded our expectations. The process was smooth, professional, and on time. Highly recommended!"
-              name="Alain M."
-              company="Musanze Business Hub"
-            />
-          </motion.div>
-          <motion.div variants={itemVariant}>
-            <TestimonialCard 
-              quote="The custom T-shirts and branding materials they designed for our event were a huge hit. The quality and creativity were top-notch."
-              name="Sarah K."
-              company="Rwanda Tourism Board"
-            />
-          </motion.div>
-          <motion.div variants={itemVariant}>
-            <TestimonialCard 
-              quote="Their team is incredibly skilled and responsive. They helped us with a complex network installation, and the results are fantastic."
-              name="John Uwimana"
-              company="Gorilla Vets Lodge"
-            />
-          </motion.div>
-        </div>
-      </motion.section>
+     
+      <TestimonialsScroller />
+
+     
+      <HomeCTA />
+
+      {/* 6. The new advanced, scrolling Partners section */}
+      {/* <PartnersSection /> */}
+      
     </div>
   );
 };

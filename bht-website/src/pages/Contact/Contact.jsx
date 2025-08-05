@@ -55,7 +55,7 @@ const Contact = () => {
           </ul>
           <div className="map-container">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31910.23199859235!2d29.59359005897103!3d-1.5039328841006522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dd433a55e2978d%3A0x1b1384e5659850c!2sMusanze!5e0!3m2!1sen!2srw!4v1678886455123!5m2!1sen!2srw" 
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Ines+Ruhengeri+Musanze+Rwanda"  
             width="100%" 
             height="250" 
             style={{border:0}} 

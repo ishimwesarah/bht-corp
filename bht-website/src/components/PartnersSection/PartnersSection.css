@@ -1,0 +1,19 @@
+.partners-section {
+  padding: 5rem 0;
+  background-color: var(--clean-white);
+}
+
+.partner-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem; /* Controls the size of the icon */
+  color: var(--neutral-gray);
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.partner-logo-container:hover {
+  opacity: 1;
+  color: var(--primary-blue);
+}

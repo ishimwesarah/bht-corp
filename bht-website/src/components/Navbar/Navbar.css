@@ -1,21 +1,32 @@
+/* ==========================================================================
+   BHT Corporation - Dynamic Scrolling Navigation Bar
+   ========================================================================== */
+
+/* --- Default Navbar State (Top of Page) --- */
 .navbar {
-  /* --- THE BHT CORPORATION BRAND GRADIENT --- */
-  /* This gradient uses YOUR brand colors. It starts with your light blue tint,
-     has a defined transition zone, and ends with your primary dark blue. */
+  /* The default gradient background */
   background: linear-gradient(to right, 
     #E0F0FF 30%, 
     #005B96 55%
   );
-  
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  /* Use 'fixed' to keep it at the top and allow content to scroll underneath */
+  position: fixed; 
+  width: 100%;
   top: 0;
   z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  /* Smoothly transition the background color change */
+  transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+}
+
+/* --- Scrolled Navbar State --- */
+.navbar.scrolled {
+  background: #ffffff; /* Solid light blue background on scroll */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .navbar-container {
@@ -25,19 +36,23 @@
   width: 100%;
 }
 
-/* --- LOGO STYLING (ON THE LIGHT SIDE) --- */
+/* --- Logo Styling --- */
 .navbar-left {
-  flex: 1; /* Allows it to take up space on the left */
+  flex: 1; 
 }
 
 .navbar-logo {
-  /* Logo text is your dark brand navy for visibility on the light blue background */
-  color: var(--navbar-text);
-  font-size: 1.8rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 
-/* --- MENU STYLING (ON THE DARK SIDE) --- */
+.navbar-logo-img {
+  height: 65px; 
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+/* --- Menu & Actions Styling --- */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -55,31 +70,45 @@
   height: 80px;
   display: flex;
   align-items: center;
+  transition: height 0.3s ease;
 }
 
 .nav-link {
-  /* Menu text is white for visibility on the dark blue background */
-  color: #e0e0e0; /* A soft white */
+  /* Default Color: White text for the dark part of the gradient */
+  color: #e0e0e0; 
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  height: 100%;
   border-bottom: 4px solid transparent;
   display: flex;
   align-items: center;
-  transition: all 0.2s ease-out;
+  /* Smoothly transition text color and border color */
+  transition: color 0.4s ease-in-out, border-color 0.4s ease; 
 }
 
+/* --- Colors for Links in the SCROLLED State --- */
+.navbar.scrolled .nav-link {
+  color: var(--primary-blue); /* Dark blue text on light background */
+}
+.navbar.scrolled .nav-link:hover {
+  color: var(--navbar-text);
+  border-bottom-color: var(--navbar-text);
+}
+.navbar.scrolled .nav-link.active {
+  color: var(--navbar-text);
+  font-weight: 700;
+  border-bottom-color: var(--navbar-text);
+}
+
+/* Default hover/active states */
 .nav-link:hover {
   color: var(--clean-white);
-  /* The hover highlight uses YOUR brand's Accent Gold */
-  border-bottom: 4px solid var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
 }
-
 .nav-link.active {
   color: var(--clean-white);
   font-weight: 700;
-  border-bottom: 4px solid var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
 }
 
 .nav-btn {
@@ -88,36 +117,69 @@
   padding-left: 1.5rem;
 }
 
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
+/* --- Icons Styling --- */
+.nav-action-btn, .menu-icon {
+  background: none;
+  border: none;
   cursor: pointer;
-  /* Icon must be white to be seen on the blue background on mobile */
-  color: var(--clean-white);
+  /* Default Color: White for the dark part of the gradient */
+  color: var(--clean-white); 
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  transition: color 0.4s ease-in-out;
+}
+.menu-icon {
+  font-size: 1.8rem;
+  display: none;
+}
+.nav-action-btn:hover {
+  color: var(--accent-gold);
 }
 
-/* --- Responsive Styles for Mobile --- */
+/* --- Colors for Icons in the SCROLLED State --- */
+.navbar.scrolled .nav-action-btn,
+.navbar.scrolled .menu-icon {
+  color: var(--primary-blue); /* Dark blue icon on light background */
+}
+.navbar.scrolled .nav-action-btn:hover {
+  color: var(--navbar-text);
+}
+
+
+/* ==========================================================================
+   Responsive Styles for Mobile Devices (max-width: 960px)
+   ========================================================================== */
 @media screen and (max-width: 960px) {
-  /* On mobile, we use the solid primary blue for a clean look */
-  .navbar {
-    background: var(--primary-blue);
+  /* Sleeker navbar on mobile */
+  .navbar, .nav-item {
+    height: 60px;
   }
   
-  .navbar-logo {
-    /* Logo must be white on mobile to be visible on the dark background */
-    color: var(--clean-white);
+  /* Scaled-down logo for mobile */
+  .navbar-logo-img {
+    height: 35px;
   }
-
+  
+  /* Scaled-down icons */
+  .nav-action-btn {
+    font-size: 1.1rem;
+  }
+  .menu-icon {
+    font-size: 1.6rem;
+  }
+  
+  /* General layout adjustments */
   .navbar-right {
     flex: 1;
     justify-content: flex-end;
   }
   
   .nav-menu {
-    display: none; /* Hide the desktop menu initially */
+    display: none;
   }
 
-  /* This is the slide-out menu */
+  /* The slide-out menu style */
   .nav-menu.active {
     display: flex;
     flex-direction: column;
@@ -125,18 +187,34 @@
     justify-content: flex-start;
     gap: 1rem;
     width: 100%;
-    height: calc(100vh - 80px);
     position: absolute;
-    top: 80px;
+    top: 60px;
+    height: calc(100vh - 60px); 
     left: 0;
     background: var(--primary-blue);
     padding-top: 2rem;
   }
 
-  .nav-item, .nav-btn { width: 100%; justify-content: center; }
-  .nav-link { width: 100%; text-align: center; padding: 1.5rem; }
-  .nav-link:hover, .nav-link.active { border-bottom: none; background: #004a7c; border-radius: 5px; }
+  /* Full-width menu items on mobile */
+  .nav-item, .nav-btn { 
+    width: 100%; 
+    justify-content: center; 
+    height: auto;
+  }
+  .nav-link { 
+    width: 100%; 
+    text-align: center; 
+    padding: 1.5rem; 
+  }
 
+  /* Mobile-specific hover/active states */
+  .nav-link:hover, .nav-link.active { 
+    border-bottom: none; 
+    background: #004a7c; 
+    border-radius: 5px; 
+  }
+
+  /* Make the menu icon visible */
   .menu-icon {
     display: block;
   }

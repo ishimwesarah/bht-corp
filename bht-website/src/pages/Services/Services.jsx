@@ -1,98 +1,138 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react'; // <-- Import useRef and useEffect
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaPlus, FaMinus, FaCheckCircle } from 'react-icons/fa';
 import './Services.css';
 
-// Import the complete data and necessary components
 import { allTechServices, allDesignServices } from '../../data/fullServiceData';
-import ServicePreviewCard from '../../components/ServicePreviewCard/ServicePreviewCard';
-import PageHero from '../../components/PageHero/PageHero'; // <-- The slideshow component is back
-
-// Animation variants
-const containerVariant = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 }
-  }
-};
-
-const itemVariant = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { ease: 'easeOut' } }
-};
+import PageHero from '../../components/PageHero/PageHero';
+import Button from '../../components/Button/Button';
 
 const Services = () => {
+  const [activeTab, setActiveTab] = useState('tech');
+  const [activeService, setActiveService] = useState(allTechServices[0]);
+
+  // --- NEW: Refs to get the DOM elements of the tabs ---
+  const techTabRef = useRef(null);
+  const designTabRef = useRef(null);
+  
+  // --- NEW: State to hold the style of the sliding indicator ---
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+
+  // --- NEW: This effect runs whenever the activeTab changes ---
+  useEffect(() => {
+    // Determine which tab is currently active
+    const activeTabElement = activeTab === 'tech' ? techTabRef.current : designTabRef.current;
+    
+    // If the element exists, measure it and update the indicator's style
+    if (activeTabElement) {
+      setIndicatorStyle({
+        left: activeTabElement.offsetLeft,
+        width: activeTabElement.offsetWidth,
+      });
+    }
+  }, [activeTab]); // This effect re-runs every time 'activeTab' changes
+
+  const servicesToDisplay = activeTab === 'tech' ? allTechServices : allDesignServices;
+
+  const handleServiceClick = (service) => {
+    setActiveService(service);
+  };
+  
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    const newActiveService = tab === 'tech' ? allTechServices[0] : allDesignServices[0];
+    setActiveService(newActiveService);
+  };
+
   return (
-    // This main div will now have the full-page gradient background
-    <div className="services-page-redesigned">
-      
-      {/* 1. The Slideshow is back at the top */}
+    <div className="services-page-container">
       <PageHero 
-        title="Our Services"
-        tagline="A comprehensive suite of technology and design services, tailored to empower individuals and businesses."
+        title="Our Full Suite of Services"
+        tagline="Your Vision, Our Expertise. Explore our capabilities in technology and creative design."
       />
 
-      {/* 2. A new wrapper for the main content to control padding */}
-      <div className="services-main-area">
-        
-        {/* TECHNOLOGY SERVICES SECTION (Now a floating panel) */}
-        <motion.section 
-          className="services-content-panel"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="section-title">Technology Solutions</h2>
-          <motion.div 
-            className="service-grid"
-            variants={containerVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            {allTechServices.map((service) => (
-              <motion.div key={service.id} variants={itemVariant}>
-                <ServicePreviewCard 
-                  icon={service.icon}
-                  name={service.name}
-                  description={service.description}
-                  linkTo={`/services/${service.id}`}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
+      <div className="services-content-wrapper">
+        <div className="container">
+          {/* --- The Tab Container now has the sliding indicator inside --- */}
+          <div className="services-tabs">
+            <button 
+              ref={techTabRef} // <-- Attach the ref
+              className={`tab-btn ${activeTab === 'tech' ? 'active' : ''}`}
+              onClick={() => handleTabClick('tech')}
+            >
+              Technology Solutions
+            </button>
+            <button 
+              ref={designTabRef} // <-- Attach the ref
+              className={`tab-btn ${activeTab === 'design' ? 'active' : ''}`}
+              onClick={() => handleTabClick('design')}
+            >
+              Graphic Design Services
+            </button>
+            {/* The animated sliding indicator */}
+            <div className="tab-indicator" style={indicatorStyle}></div>
+          </div>
 
-        {/* DESIGN SERVICES SECTION (Now a floating panel) */}
-        <motion.section 
-          className="services-content-panel"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <h2 className="section-title">Graphic Design & Creative Services</h2>
-          <motion.div 
-            className="service-grid"
-            variants={containerVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            {allDesignServices.map((service) => (
-              <motion.div key={service.id} variants={itemVariant}>
-                 <ServicePreviewCard 
-                  icon={service.icon}
-                  name={service.name}
-                  description={service.description}
-                  linkTo={`/services/${service.id}`}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
+          <div className="services-content-grid">
+            {/* --- LEFT COLUMN: SERVICE LIST --- */}
+            <div className="service-list-column">
+              {/* This section uses AnimatePresence to smoothly switch between tab content */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab} // The key ensures the animation runs when the tab changes
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {servicesToDisplay.map((service) => (
+                    <div 
+                      key={service.id} 
+                      className={`service-list-item ${activeService.id === service.id ? 'active' : ''}`}
+                      onClick={() => handleServiceClick(service)}
+                    >
+                      <div className="service-list-icon-wrapper">
+                        {React.createElement(service.icon)}
+                      </div>
+                      <div className="service-list-text">
+                        <h4>{service.name}</h4>
+                        <p>{service.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
+            {/* --- RIGHT COLUMN: DYNAMIC CONTENT PANE --- */}
+            <div className="service-detail-pane">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeService.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                >
+                  <div className="detail-pane-image-frame">
+                    <img src={activeService.image} alt={activeService.name} />
+                  </div>
+                  <div className="detail-pane-content">
+                    <h3>What's Included:</h3>
+                    <ul className="deliverables-list">
+                      {activeService.deliverables.map((item, index) => (
+                        <li key={index}><FaCheckCircle /> {item}</li>
+                      ))}
+                    </ul>
+                    <Button to="/contact" buttonStyle="btn--primary" buttonSize="btn--large">
+                      {activeService.ctaText}
+                    </Button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

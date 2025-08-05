@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './ServicePreviewCard.css';
 
 const ServicePreviewCard = ({ icon, name, description, linkTo }) => {
-  const IconComponent = icon; // Assign the icon component to a variable
+  const IconComponent = icon;
 
   return (
     <Link to={linkTo} className="service-preview-card">
@@ -13,8 +13,9 @@ const ServicePreviewCard = ({ icon, name, description, linkTo }) => {
       <div className="card-content">
         <h3>{name}</h3>
         <p>{description}</p>
-        <span className="card-learn-more">Learn More →</span>
       </div>
+      
+      {/* <span className="card-hover-arrow">→</span> */}
     </Link>
   );
 };
