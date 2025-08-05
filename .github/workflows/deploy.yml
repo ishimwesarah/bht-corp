@@ -1,4 +1,4 @@
-name: Deployment to Andasy
+name: Deployment to Andasy With nested project
 on:
   push:
     branches:
@@ -8,8 +8,11 @@ jobs:
     name: Deploy App
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: quarksgroup/andasy-action@main
-          env:
+      - uses: actions/checkout@v2
+      - uses: quarksgroup/andasy-action@main
+        env:
           # Set access token
-            ANDASY_ACCESS_TOKEN: ${{ secrets.ANDASY_ACCESS_TOKEN }}
+          ANDASY_ACCESS_TOKEN: ${{ secrets.ANDASY_ACCESS_TOKEN }}
+        with:
+          # Specifying custom deployment directory, relative to the root of the repository
+          project_path: bht-website
