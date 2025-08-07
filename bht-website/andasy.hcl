@@ -6,7 +6,10 @@ app_name = "bht"
 
 app {
 
-  env = {}
+  env = {
+     HOST = "::"
+
+  }
 
   port = 80
 

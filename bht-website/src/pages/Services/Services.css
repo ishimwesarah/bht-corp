@@ -54,12 +54,9 @@
 
 /* --- Service List (Left Column) --- */
 .service-list-column {
-  /* --- THIS IS THE CRUCIAL FIX FOR DESKTOP --- */
-  overflow-y: auto; /* Adds a scrollbar ONLY if the content is taller than the container */
-  /* This constrains the height relative to the viewport, making it scrollable.
-     120px for the sticky top offset + 120px for page padding */
+  overflow-y: auto;
   max-height: calc(100vh - 240px);
-  padding-right: 1rem; /* Adds space for the scrollbar so it doesn't overlap content */
+  padding-right: 1rem;
 }
 
 .service-list-item {
@@ -73,14 +70,14 @@
   transition: all 0.3s ease;
   margin-bottom: 1rem;
 }
-.service-list-item:last-child {
+.service-list-item:last-of-type {
   margin-bottom: 0;
 }
 .service-list-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 91, 150, 0.08);
 }
-.service-list-item.active {
+.service-list-item.active-desktop {
   background-color: #E0F0FF;
   border-color: var(--primary-blue);
   box-shadow: 0 8px 20px rgba(0, 91, 150, 0.1);
@@ -114,8 +111,9 @@
 }
 .detail-pane-image-frame img {
   width: 100%;
-  height: auto;
-  display:block;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 .detail-pane-content h3 {
   color: var(--navbar-text);
@@ -124,6 +122,7 @@
 .deliverables-list {
   list-style: none;
   margin-bottom: 2rem;
+  padding-left: 0;
 }
 .deliverables-list li {
   color: var(--neutral-gray);
@@ -137,19 +136,41 @@
   font-size: 1.2rem;
 }
 
-/* --- Responsive Styles --- */
+/* --- Mobile Accordion Content Styling --- */
+.mobile-detail-content {
+  overflow: hidden;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  margin: -0.5rem 0 1rem 0;
+  background-color: var(--clean-white);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 20px rgba(0, 91, 150, 0.08);
+}
+.mobile-detail-content .detail-pane-image-frame {
+  height: 200px;
+}
+.service-list-item.active-mobile {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   Responsive Logic
+   ========================================================================== */
+@media screen and (min-width: 961px) {
+  .mobile-detail-content {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .services-content-grid {
     grid-template-columns: 1fr;
   }
   .service-detail-pane {
-    position: static; /* Unstick the right pane on mobile */
-    margin-top: 2rem;
+    display: none !important;
   }
-
-  /* --- THIS IS THE CRUCIAL FIX FOR MOBILE --- */
   .service-list-column {
-    /* We MUST disable the desktop scrolling behavior on mobile */
     overflow-y: visible;
     max-height: none;
     padding-right: 0;

@@ -1,47 +1,67 @@
-import React, { useState, useEffect, useRef } from 'react'; // <-- Import useRef and useEffect
+import React, { useState, useEffect, useRef } from 'react'; // <-- useRef and useEffect are back
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlus, FaMinus, FaCheckCircle } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaCheckCircle, FaTimes } from 'react-icons/fa'; // <-- Added FaTimes for modal
 import './Services.css';
 
 import { allTechServices, allDesignServices } from '../../data/fullServiceData';
 import PageHero from '../../components/PageHero/PageHero';
 import Button from '../../components/Button/Button';
 
+// A small, reusable component for the detail content to keep our code DRY
+const ServiceDetailContent = ({ service }) => (
+  <>
+    <div className="detail-pane-image-frame">
+      <img src={service.image} alt={service.name} />
+    </div>
+    <div className="detail-pane-content">
+      <h3>What's Included:</h3>
+      <ul className="deliverables-list">
+        {service.deliverables.map((item, index) => (
+          <li key={index}><FaCheckCircle /> {item}</li>
+        ))}
+      </ul>
+      <Button to="/contact" buttonStyle="btn--primary" buttonSize="btn--large">
+        {service.ctaText}
+      </Button>
+    </div>
+  </>
+);
+
 const Services = () => {
   const [activeTab, setActiveTab] = useState('tech');
   const [activeService, setActiveService] = useState(allTechServices[0]);
-
-  // --- NEW: Refs to get the DOM elements of the tabs ---
+  const [mobileOpenId, setMobileOpenId] = useState(null);
+  
+  // --- TABS ARE BACK: Refs to get the DOM elements of the tabs ---
   const techTabRef = useRef(null);
   const designTabRef = useRef(null);
-  
-  // --- NEW: State to hold the style of the sliding indicator ---
   const [indicatorStyle, setIndicatorStyle] = useState({});
 
-  // --- NEW: This effect runs whenever the activeTab changes ---
+  // --- TABS ARE BACK: This effect runs whenever the activeTab changes ---
   useEffect(() => {
-    // Determine which tab is currently active
     const activeTabElement = activeTab === 'tech' ? techTabRef.current : designTabRef.current;
-    
-    // If the element exists, measure it and update the indicator's style
     if (activeTabElement) {
       setIndicatorStyle({
         left: activeTabElement.offsetLeft,
         width: activeTabElement.offsetWidth,
       });
     }
-  }, [activeTab]); // This effect re-runs every time 'activeTab' changes
+  }, [activeTab]);
 
   const servicesToDisplay = activeTab === 'tech' ? allTechServices : allDesignServices;
 
   const handleServiceClick = (service) => {
     setActiveService(service);
+    if (window.innerWidth <= 960) {
+      setMobileOpenId(prevId => (prevId === service.id ? null : service.id));
+    }
   };
   
   const handleTabClick = (tab) => {
     setActiveTab(tab);
     const newActiveService = tab === 'tech' ? allTechServices[0] : allDesignServices[0];
     setActiveService(newActiveService);
+    setMobileOpenId(null);
   };
 
   return (
@@ -53,58 +73,57 @@ const Services = () => {
 
       <div className="services-content-wrapper">
         <div className="container">
-          {/* --- The Tab Container now has the sliding indicator inside --- */}
+
+          {/* --- THE TABS ARE BACK AND FULLY FUNCTIONAL --- */}
           <div className="services-tabs">
             <button 
-              ref={techTabRef} // <-- Attach the ref
+              ref={techTabRef}
               className={`tab-btn ${activeTab === 'tech' ? 'active' : ''}`}
               onClick={() => handleTabClick('tech')}
             >
               Technology Solutions
             </button>
             <button 
-              ref={designTabRef} // <-- Attach the ref
+              ref={designTabRef}
               className={`tab-btn ${activeTab === 'design' ? 'active' : ''}`}
               onClick={() => handleTabClick('design')}
             >
               Graphic Design Services
             </button>
-            {/* The animated sliding indicator */}
             <div className="tab-indicator" style={indicatorStyle}></div>
           </div>
 
           <div className="services-content-grid">
-            {/* --- LEFT COLUMN: SERVICE LIST --- */}
             <div className="service-list-column">
-              {/* This section uses AnimatePresence to smoothly switch between tab content */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab} // The key ensures the animation runs when the tab changes
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {servicesToDisplay.map((service) => (
-                    <div 
-                      key={service.id} 
-                      className={`service-list-item ${activeService.id === service.id ? 'active' : ''}`}
-                      onClick={() => handleServiceClick(service)}
-                    >
-                      <div className="service-list-icon-wrapper">
-                        {React.createElement(service.icon)}
-                      </div>
-                      <div className="service-list-text">
-                        <h4>{service.name}</h4>
-                        <p>{service.description}</p>
-                      </div>
+              {servicesToDisplay.map((service) => (
+                <React.Fragment key={service.id}>
+                  <div 
+                    className={`service-list-item ${activeService.id === service.id ? 'active-desktop' : ''} ${mobileOpenId === service.id ? 'active-mobile' : ''}`}
+                    onClick={() => handleServiceClick(service)}
+                  >
+                    <div className="service-list-icon-wrapper">{React.createElement(service.icon)}</div>
+                    <div className="service-list-text">
+                      <h4>{service.name}</h4>
+                      <p>{service.description}</p>
                     </div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+                  </div>
+                  <AnimatePresence>
+                    {mobileOpenId === service.id && (
+                      <motion.div
+                        className="mobile-detail-content"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                      >
+                        <ServiceDetailContent service={service} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </React.Fragment>
+              ))}
             </div>
 
-            {/* --- RIGHT COLUMN: DYNAMIC CONTENT PANE --- */}
             <div className="service-detail-pane">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -114,26 +133,15 @@ const Services = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                  <div className="detail-pane-image-frame">
-                    <img src={activeService.image} alt={activeService.name} />
-                  </div>
-                  <div className="detail-pane-content">
-                    <h3>What's Included:</h3>
-                    <ul className="deliverables-list">
-                      {activeService.deliverables.map((item, index) => (
-                        <li key={index}><FaCheckCircle /> {item}</li>
-                      ))}
-                    </ul>
-                    <Button to="/contact" buttonStyle="btn--primary" buttonSize="btn--large">
-                      {activeService.ctaText}
-                    </Button>
-                  </div>
+                  <ServiceDetailContent service={activeService} />
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Mobile Modal Logic would go here if we were using it, but the inline accordion is better */}
     </div>
   );
 };
