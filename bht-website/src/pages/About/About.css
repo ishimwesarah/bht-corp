@@ -1,196 +1,63 @@
-.about-hero {
-  background-color: var(--primary-blue);
-  color: var(--clean-white);
+/* ==========================================================================
+   BHT Corporation - Advanced FAQ Page with Chatbot
+   ========================================================================== */
+
+.faq-hero {
+  background: linear-gradient(to top right, #E0F0FF, #BDE0FE);
   text-align: center;
-  padding: 6rem 0;
+  padding: 6rem 1rem;
 }
-.about-hero h1 {
-  color: var(--clean-white);
+.faq-hero h1 {
+  color: var(--navbar-text);
+  font-size: 3rem;
 }
-.about-hero p {
-  font-size: 1.2rem;
-  font-weight: 300;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.about-content {
-  padding: 5rem 2rem;
-}
-
-.about-section {
-  margin-bottom: 5rem;
-}
-
-.about-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.about-section h2::after {
-  content: '';
-  width: 60px;
-  height: 4px;
-  background-color: var(--accent-gold);
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.about-section p {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.business-structure {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    text-align: left;
-}
-.business-structure .structure-text, .business-structure .structure-image {
-    flex: 1;
-}
-
-.business-structure blockquote {
-    background-color: var(--light-gray-bg);
-    border-left: 5px solid var(--accent-gold);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--primary-blue);
-}
-.business-structure blockquote span {
-    display: block;
-    text-align: right;
-    margin-top: 1rem;
-    font-style: normal;
-    font-weight: 600;
-}
-/* Team Section */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-.team-member-card {
-  background: var(--clean-white);
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  text-align: center;
-  padding: 2.5rem;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.team-member-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 91, 150, 0.15);
-}
-
-.team-member-image-container {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-  position: relative;
-  overflow: hidden;
-  border: 5px solid var(--light-gray-bg);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
-}
-
-.team-member-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.team-member-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 91, 150, 0.7);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.team-member-image-container:hover .team-member-overlay {
-  opacity: 1;
-}
-
-.team-member-image-container:hover img {
-  transform: scale(1.1);
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-links a {
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  background: var(--accent-gold);
-  transform: translateY(-3px);
-}
-
-.team-member-card h3 {
+.faq-hero p {
   color: var(--primary-blue);
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 1rem auto 0 auto;
 }
 
-.team-member-card span {
-  display: block;
-  color: var(--accent-gold);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
+/* --- The Main Two-Column Layout --- */
+.faq-main-content {
+  padding: 5rem 1rem;
 }
 
-.team-member-card p {
-  text-align: center;
-  color: var(--neutral-gray);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-top: 1rem;
+.faq-grid {
+  display: grid;
+  /* Create two columns, with the chatbot column being slightly larger */
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: flex-start; /* Aligns items to the top */
 }
 
-@media (max-width: 768px) {
-  .team-member-image-container {
-    width: 160px;
-    height: 160px;
+/* --- Section Title Styling --- */
+.faq-section-title {
+  font-size: 1.8rem;
+  color: var(--navbar-text);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--light-gray-bg);
+}
+
+/* --- Accordion Styling (Right Column) --- */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+}
+/* We get the styling for the accordion items from the global
+   FAQItem.css file, so we don't need to repeat it here. */
+
+/* --- Responsive Styles --- */
+@media screen and (max-width: 1024px) {
+  .faq-grid {
+    /* Stack the columns on tablets and mobile */
+    grid-template-columns: 1fr;
+    gap: 5rem; /* Increase gap when stacked */
   }
-  
-  .team-grid {
-    gap: 2rem;
-  }
+}
+
+@media screen and (max-width: 768px) {
+    .faq-hero h1 { font-size: 2.5rem; }
+    .faq-main-content { padding: 4rem 1rem; }
 }
