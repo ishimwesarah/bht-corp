@@ -1,8 +1,14 @@
+.contact-page {
+  background-color: var(--clean-white);
+}
+
 .contact-hero {
   background-color: var(--light-gray-bg);
   text-align: center;
-  padding: 6rem 0;
+  padding: 6rem 1rem;
 }
+.contact-hero h1 { font-size: 3rem; }
+.contact-hero p { max-width: 600px; margin: 1rem auto 0 auto; }
 
 .contact-main {
   display: grid;
@@ -17,100 +23,56 @@
   margin-bottom: 1rem;
 }
 
-.info-list {
-  list-style: none;
-  margin: 2rem 0;
+.whatsapp-button {
+  display: inline-flex; align-items: center; gap: 0.75rem; background-color: #25D366;
+  color: white; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 600;
+  text-decoration: none; margin: 1.5rem 0; transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.info-list li {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-}
-.info-list li svg {
-  color: var(--accent-gold);
-  margin-right: 1rem;
-  font-size: 1.3rem;
-}
+.whatsapp-button:hover { transform: scale(1.05); background-color: #128C7E; }
+.whatsapp-icon { font-size: 1.5rem; }
 
-.map-container {
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 2rem;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-}
+.info-list { list-style: none; margin: 2rem 0; }
+.info-list li { margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; }
+.info-list li svg { color: var(--accent-gold); margin-right: 1rem; font-size: 1.3rem; }
 
-/* Form Styles */
-.contact-form-wrapper form {
-  display: flex;
-  flex-direction: column;
-}
-.form-group {
-  margin-bottom: 1.5rem;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--navbar-text);
-}
+.map-container { border-radius: 10px; overflow: hidden; margin-top: 2rem; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); }
+
+/* --- Form Styles --- */
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--navbar-text); }
+.required-asterisk { color: #d93025; margin-left: 0.25rem; }
 .form-group input, .form-group textarea {
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: var(--font-family-main);
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  width: 100%; padding: 1rem; border: 1px solid #ccc; border-radius: 5px; font-family: inherit;
+  font-size: 1rem; transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .form-group input:focus, .form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-blue);
+  outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 91, 150, 0.15);
 }
 
 .submit-button {
-  background-color: var(--primary-blue);
-  color: var(--clean-white);
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  align-self: flex-start;
+  background-color: var(--primary-blue); color: var(--clean-white); padding: 1rem 2rem; border: none;
+  border-radius: 5px; font-size: 1.1rem; font-weight: 600; cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; align-self: flex-start;
 }
-.submit-button:hover {
-  background-color: #004a7c; /* Darker blue */
-  transform: translateY(-2px);
-}
+.submit-button:hover { background-color: #004a7c; transform: translateY(-2px); }
+.submit-button:disabled { background-color: #ccc; cursor: not-allowed; }
 
-@media (max-width: 960px) {
-  .contact-main {
-    grid-template-columns: 1fr;
-  }
-}
+/* --- NEW: Error and Success Message Styles --- */
+.error-message { color: #d93025; font-size: 0.9rem; margin-top: 0.25rem; }
+.form-error { text-align: center; margin-bottom: 1rem; font-weight: 600; }
 
-/* --- Responsive Styles for Contact Page --- */
-@media (max-width: 960px) {
-  .contact-main {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+.form-success-message {
+  text-align: center; background-color: #e6f4ea; border: 1px solid #c8e6c9;
+  padding: 2.5rem; border-radius: 10px;
 }
+.form-success-message h3 { color: #2e7d32; margin-bottom: 0.5rem; font-size: 1.8rem; }
+.form-success-message p { color: #388e3c; line-height: 1.6; }
 
+/* Responsive Styles */
+@media (max-width: 960px) { .contact-main { grid-template-columns: 1fr; } }
 @media (max-width: 480px) {
-    .contact-hero {
-        padding: 4rem 1rem;
-    }
-    .contact-hero h1 {
-        font-size: 2.5rem;
-    }
-    .contact-main {
-        padding: 3rem 1.5rem;
-    }
-    .submit-button {
-        width: 100%;
-        text-align: center;
-    }
+  .contact-hero { padding: 4rem 1rem; }
+  .contact-hero h1 { font-size: 2.5rem; }
+  .contact-main { padding: 3rem 1.5rem; }
+  .submit-button { width: 100%; text-align: center; }
 }

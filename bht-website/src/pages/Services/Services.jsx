@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'; // <-- useRef and useEffect are back
+import React, { useState, useEffect, useRef } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlus, FaMinus, FaCheckCircle, FaTimes } from 'react-icons/fa'; // <-- Added FaTimes for modal
+import { FaPlus, FaMinus, FaCheckCircle, FaTimes } from 'react-icons/fa'; 
 import './Services.css';
 
 import { allTechServices, allDesignServices } from '../../data/fullServiceData';
 import PageHero from '../../components/PageHero/PageHero';
 import Button from '../../components/Button/Button';
 
-// A small, reusable component for the detail content to keep our code DRY
+
 const ServiceDetailContent = ({ service }) => (
   <>
     <div className="detail-pane-image-frame">
@@ -37,7 +37,8 @@ const Services = () => {
   const designTabRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({});
 
-  // --- TABS ARE BACK: This effect runs whenever the activeTab changes ---
+
+ 
   useEffect(() => {
     const activeTabElement = activeTab === 'tech' ? techTabRef.current : designTabRef.current;
     if (activeTabElement) {
@@ -70,11 +71,8 @@ const Services = () => {
         title="Our Full Suite of Services"
         tagline="Your Vision, Our Expertise. Explore our capabilities in technology and creative design."
       />
-
       <div className="services-content-wrapper">
         <div className="container">
-
-          {/* --- THE TABS ARE BACK AND FULLY FUNCTIONAL --- */}
           <div className="services-tabs">
             <button 
               ref={techTabRef}
@@ -141,7 +139,6 @@ const Services = () => {
         </div>
       </div>
       
-      {/* Mobile Modal Logic would go here if we were using it, but the inline accordion is better */}
     </div>
   );
 };

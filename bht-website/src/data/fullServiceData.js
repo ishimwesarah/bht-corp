@@ -130,7 +130,7 @@ export const allDesignServices = [
     ctaText: "Order Custom Mugs"
   },
   { 
-    id: 'epoxy-design', name: 'Epoxy Design (ibifungo)', 
+    id: 'epoxy-design', name: 'Epoxy Design', 
     description: 'Unique and durable custom designs crafted with high-quality epoxy for items like keychains and decor.', 
     icon: FaPalette, image: epoxyImg,
     deliverables: ['Personalized Design Concept', 'High-Gloss Epoxy Finish', 'Color & Additive Customization', 'Durable, Hand-crafted Item'],

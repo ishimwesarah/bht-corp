@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar/TopBar';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'; // <-- IMPORT IT
+
 
 // Import Page Components
 import Home from './pages/Home/Home';
@@ -14,6 +14,8 @@ import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Portfolio from './pages/Portfolio/Portfolio';
 import FAQ from './pages/FAQ/FAQ';
+import Careers from './pages/Careers/Careers';
+import FloatingActionButtons from './components/FloatingActionButtons/FloatingActionButtons';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/careers" element={<Careers />} /> 
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
@@ -34,7 +37,7 @@ function App() {
 
       {/* --- ADD THE SCROLL TO TOP BUTTON HERE --- */}
       {/* It sits outside the main content but inside the Router */}
-      <ScrollToTopButton />
+      <FloatingActionButtons />
     </Router>
   );
 }

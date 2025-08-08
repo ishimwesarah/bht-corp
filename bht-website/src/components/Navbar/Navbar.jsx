@@ -59,27 +59,33 @@ const Navbar = () => {
                 <NavLink to="/" className="nav-link" onClick={closeMobileMenu}>Home</NavLink>
               </li>
               <li className="nav-item">
+                <NavLink to="/about" className="nav-link" onClick={closeMobileMenu}>About</NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink to="/services" className="nav-link" onClick={closeMobileMenu}>Services</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/portfolio" className="nav-link" onClick={closeMobileMenu}>Portfolio</NavLink>
+                <NavLink to="/portfolio" className="nav-link" onClick={closeMobileMenu}>Gallery</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/about" className="nav-link" onClick={closeMobileMenu}>About</NavLink>
+              
+               <li className="nav-item">
+                <NavLink to="/careers" className="nav-link">Careers</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/faq" className="nav-link" onClick={closeMobileMenu}>FAQ</NavLink>
               </li>
-              <li className="nav-btn">
-                <Button to="/contact" buttonStyle="btn--primary" onClick={closeMobileMenu}>
-                  Get a Quote
-                </Button>
-              </li>
+              
             </ul>
 
             <button className="nav-action-btn" onClick={handleOpenSearch}>
                 <FaSearch />
             </button>
+
+            <div className="nav-login-btn-wrapper">
+  <Button to="/login" buttonStyle="btn--primary">
+    Login
+  </Button>
+</div>
 
             <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <FaTimes /> : '☰'}

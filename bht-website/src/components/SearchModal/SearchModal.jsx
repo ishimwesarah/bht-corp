@@ -78,7 +78,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 <ul className="search-results-list">
                   {searchResults.map(service => (
                     <li key={service.id}>
-                      <Link to={`/services/${service.id}`} className="search-result-item" onClick={onClose}>
+                      <Link to={`/services/`} className="search-result-item" onClick={onClose}>
                         <div className="result-icon">{React.createElement(service.icon)}</div>
                         <div className="result-text">
                           <h4>{service.name}</h4>

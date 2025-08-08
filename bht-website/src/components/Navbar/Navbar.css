@@ -5,8 +5,8 @@
 /* --- Default Navbar State (Top of Page) --- */
 .navbar {
   /* The default gradient background */
-  background: linear-gradient(to right, 
-    #E0F0FF 30%, 
+  background: linear-gradient(to right,
+    #E0F0FF 30%,
     #005B96 55%
   );
   height: 80px;
@@ -15,12 +15,12 @@
   align-items: center;
   font-size: 1.2rem;
   /* Use 'fixed' to keep it at the top and allow content to scroll underneath */
-  position: fixed; 
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
   /* Smoothly transition the background color change */
-  transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+  transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 /* --- Scrolled Navbar State --- */
@@ -38,7 +38,7 @@
 
 /* --- Logo Styling --- */
 .navbar-left {
-  flex: 1; 
+  flex: 1;
 }
 
 .navbar-logo {
@@ -47,7 +47,7 @@
 }
 
 .navbar-logo-img {
-  height: 65px; 
+  height: 65px;
   width: auto;
   transition: height 0.3s ease;
 }
@@ -75,7 +75,7 @@
 
 .nav-link {
   /* Default Color: White text for the dark part of the gradient */
-  color: #e0e0e0; 
+  color: #e0e0e0;
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -83,7 +83,7 @@
   display: flex;
   align-items: center;
   /* Smoothly transition text color and border color */
-  transition: color 0.4s ease-in-out, border-color 0.4s ease; 
+  transition: color 0.4s ease-in-out, border-color 0.4s ease;
 }
 
 /* --- Colors for Links in the SCROLLED State --- */
@@ -123,7 +123,7 @@
   border: none;
   cursor: pointer;
   /* Default Color: White for the dark part of the gradient */
-  color: var(--clean-white); 
+  color: var(--clean-white);
   font-size: 1.2rem;
   padding: 0.5rem;
   margin-left: 1rem;
@@ -146,6 +146,41 @@
   color: var(--navbar-text);
 }
 
+.nav-login-btn-wrapper {
+  margin-left: 1.5rem; /* Increased from 0.5rem to 1.5rem for more space */
+  display: flex;
+  align-items: center;
+  /* REMOVED: display: none; - This was hiding the button everywhere! */
+}
+
+/* Style the primary button in the navbar */
+.navbar .btn--primary {
+  background-color: var(--accent-gold);
+  color: var(--navbar-text);
+  border: 2px solid var(--accent-gold);
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar .btn--primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+  border-color: var(--btn-primary-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrolled state: Maintain primary button styling */
+.navbar.scrolled .btn--primary {
+  background-color: var(--accent-gold);
+  color: var(--navbar-text);
+  border-color: var(--accent-gold);
+}
+
+.navbar.scrolled .btn--primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+  border-color: var(--btn-primary-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
 /* ==========================================================================
    Responsive Styles for Mobile Devices (max-width: 960px)
@@ -155,12 +190,12 @@
   .navbar, .nav-item {
     height: 60px;
   }
-  
+
   /* Scaled-down logo for mobile */
   .navbar-logo-img {
     height: 35px;
   }
-  
+
   /* Scaled-down icons */
   .nav-action-btn {
     font-size: 1.1rem;
@@ -168,13 +203,13 @@
   .menu-icon {
     font-size: 1.6rem;
   }
-  
+
   /* General layout adjustments */
   .navbar-right {
     flex: 1;
     justify-content: flex-end;
   }
-  
+
   .nav-menu {
     display: none;
   }
@@ -189,33 +224,49 @@
     width: 100%;
     position: absolute;
     top: 60px;
-    height: calc(100vh - 60px); 
+    height: calc(100vh - 60px);
     left: 0;
     background: var(--primary-blue);
     padding-top: 2rem;
   }
 
   /* Full-width menu items on mobile */
-  .nav-item, .nav-btn { 
-    width: 100%; 
-    justify-content: center; 
+  .nav-item, .nav-btn {
+    width: 100%;
+    justify-content: center;
     height: auto;
   }
-  .nav-link { 
-    width: 100%; 
-    text-align: center; 
-    padding: 1.5rem; 
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
   }
 
   /* Mobile-specific hover/active states */
-  .nav-link:hover, .nav-link.active { 
-    border-bottom: none; 
-    background: #004a7c; 
-    border-radius: 5px; 
+  .nav-link:hover, .nav-link.active {
+    border-bottom: none;
+    background: #004a7c;
+    border-radius: 5px;
   }
 
   /* Make the menu icon visible */
   .menu-icon {
     display: block;
+  }
+
+  /* MOVED: Hide login button on mobile (moved from global scope) */
+  .nav-login-btn-wrapper {
+    display: none;
+  }
+
+  /* Show login button in mobile menu when active */
+  .nav-menu.active .nav-login-btn-wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .nav-menu.active .nav-login-btn-wrapper .btn {
+    width: 80%;
   }
 }
