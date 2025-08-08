@@ -22,7 +22,7 @@
 }
 
 .faq-answer {
-  overflow: hidden; /* Crucial for height animation */
+  overflow: hidden; 
 }
 
 .faq-answer p {

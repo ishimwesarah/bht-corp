@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './About.css';
-// import teamMember1 from '../../assets/bahati.jpg'; // Example image
-// import teamMember2 from '../../assets/jehovanis.jpg'; // Example image
+import teamMember1 from '../../assets/baha.jpg'; // Example image
+import teamMember2 from '../../assets/jeho.jpg'; 
+import teamMember3 from '../../assets/mug.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Animation Variants for Framer Motion
 const fadeIn = {
@@ -49,24 +51,76 @@ const About = () => {
         </motion.div>
 
         <motion.div {...fadeIn} className="about-section team-section">
-          <h2>Meet Our Key Team</h2>
-          <div className="team-grid">
-            <div className="team-member-card">
-              {/* <img src={teamMember1} alt="BAHATI Dieu Merci" /> */}
-              <div className="team-member-placeholder">BDM</div>
-              <h3>BAHATI Dieu Merci</h3>
-              <span>Manager & IT Specialist</span>
-              <p>Former IT at Rwanda Medical Supply, leading our technology and management efforts with skill and vision.</p>
-            </div>
-            <div className="team-member-card">
-              {/* <img src={teamMember2} alt="IKORUKWISHAKA Jehovanis" /> */}
-               <div className="team-member-placeholder">IJ</div>
-              <h3>IKORUKWISHAKA Jehovanis</h3>
-              <span>Graphic Designer & Innovator</span>
-              <p>Currently at Marran Design, bringing cutting-edge creativity and innovation to our design projects.</p>
-            </div>
-          </div>
-        </motion.div>
+  <h2>Meet Our Key Team</h2>
+  <div className="team-grid">
+    <div className="team-member-card">
+      <div className="team-member-image-container">
+        <img src={teamMember3} alt="...." />
+        <div className="team-member-overlay">
+          <div className="social-links">
+  <a href="#linkedin" aria-label="LinkedIn">
+    <FontAwesomeIcon icon={['fab', 'linkedin']} />
+  </a>
+  <a href="#twitter" aria-label="Twitter">
+    <FontAwesomeIcon icon={['fab', 'twitter']} />
+  </a>
+  <a href="#email" aria-label="Email">
+    <FontAwesomeIcon icon={['fas', 'envelope']} />
+  </a>
+</div>
+        </div>
+      </div>
+      <h3>...</h3>
+      <span>Manager</span>
+      <p>Professor at ...</p>
+    </div>
+  
+    <div className="team-member-card">
+      <div className="team-member-image-container">
+        <img src={teamMember1} alt="BAHATI Dieu Merci" />
+        <div className="team-member-overlay">
+          <div className="social-links">
+  <a href="https://www.linkedin.com/in/bahati-dieu-merci-bbaa87312/" aria-label="LinkedIn">
+    <FontAwesomeIcon icon={['fab', 'linkedin']} />
+  </a>
+  <a href="#twitter" aria-label="Twitter">
+    <FontAwesomeIcon icon={['fab', 'twitter']} />
+  </a>
+  <a href="#email" aria-label="Email">
+    <FontAwesomeIcon icon={['fas', 'envelope']} />
+  </a>
+</div>
+        </div>
+      </div>
+      <h3>BAHATI Dieu Merci</h3>
+      <span>IT Specialist</span>
+      <p>Former IT at Rwanda Medical Supply, leading our technology and management efforts with skill and vision.</p>
+    </div>
+    <div className="team-member-card">
+      <div className="team-member-image-container">
+        <img src={teamMember2} alt="IKORUKWISHAKA Jehovanis" />
+        <div className="team-member-overlay">
+          <div className="social-links">
+  <a href="https://www.linkedin.com/in/jehovanis-ikorukwishaka-8675b619a/" aria-label="LinkedIn">
+    <FontAwesomeIcon icon={['fab', 'linkedin']} />
+  </a>
+  <a href="#twitter" aria-label="Twitter">
+    <FontAwesomeIcon icon={['fab', 'twitter']} />
+  </a>
+  <a href="#email" aria-label="Email">
+    <FontAwesomeIcon icon={['fas', 'envelope']} />
+  </a>
+</div>
+        </div>
+      </div>
+      <h3>IKORUKWISHAKA Jehovanis</h3>
+      <span>Graphic Designer & Innovator</span>
+      <p>Currently at Marran Design, bringing cutting-edge creativity and innovation to our design projects.</p>
+    </div>
+    
+  </div>
+  
+</motion.div>
       </section>
     </div>
   );

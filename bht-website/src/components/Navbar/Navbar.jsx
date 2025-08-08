@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'; // Import useEffect
+import React, { useState, useEffect } from 'react'; 
 import { NavLink, Link } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 import Button from '../Button/Button'; 
 import SearchModal from '../SearchModal/SearchModal';
-import bhtLogo from '../../assets/bht.png';
+import bhtLogo from '../../assets/logo.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   
-  // --- KEY CHANGE #1: STATE TO TRACK SCROLL ---
+ 
   const [isScrolled, setIsScrolled] = useState(false);
 
   const closeMobileMenu = () => setMenuOpen(false);
@@ -20,30 +20,26 @@ const Navbar = () => {
     setIsSearchOpen(true);
   };
   
-  // --- KEY CHANGE #2: EFFECT TO LISTEN FOR SCROLL EVENTS ---
   useEffect(() => {
     const handleScroll = () => {
-      // Set isScrolled to true if user scrolls past 80px, false otherwise
       if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
-    
-    // Add event listener when component mounts
+   
     window.addEventListener('scroll', handleScroll);
     
-    // Cleanup function to remove event listener when component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Empty array ensures this effect runs only once on mount
+  }, []); 
 
 
   return (
     <> 
-      {/* --- KEY CHANGE #3: CONDITIONALLY APPLY THE 'scrolled' CLASS --- */}
+     
       <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
         <div className="navbar-container container">
           <div className="navbar-left">
@@ -54,7 +50,7 @@ const Navbar = () => {
 
           <div className="navbar-right">
             <ul className={menuOpen ? 'nav-menu active' : 'nav-menu'}>
-              {/* All the list items remain the same */}
+             
               <li className="nav-item">
                 <NavLink to="/" className="nav-link" onClick={closeMobileMenu}>Home</NavLink>
               </li>

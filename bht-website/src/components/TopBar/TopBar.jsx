@@ -11,9 +11,9 @@ const TopBar = () => {
             <FaPhoneAlt />
             <span>+250 784 589 508</span>
           </a>
-          <a href="mailto:info@bhtcorp.com" className="contact-item">
+          <a href="mailto:bhtcorpor@gmail.com" className="contact-item">
             <FaEnvelope />
-            <span>info@bhtcorp.com</span>
+            <span>bhtcorpor@gmail.com</span>
           </a>
         </div>
         <div className="top-bar-socials">

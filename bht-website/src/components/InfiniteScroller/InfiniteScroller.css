@@ -1,7 +1,6 @@
 .scroller {
   max-width: 100%;
   overflow: hidden;
-  /* A mask to fade out the edges for a cleaner look */
   -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
   mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
@@ -9,24 +8,24 @@
 .scroller__inner {
   display: flex;
   flex-wrap: nowrap;
-  gap: 2rem; /* The space between items */
-  width: max-content; /* Allows the container to be as wide as its content */
+  gap: 2rem; 
+  width: max-content; 
 }
 
-/* The animation itself */
+
 @keyframes scroll {
   to {
-    transform: translate(calc(-50% - 1rem)); /* -50% for the loop, -1rem for half the gap */
+    transform: translate(calc(-50% - 1rem)); 
   }
 }
 
-/* Apply the animation when the component is mounted */
+
 .scroller[data-animated="true"] .scroller__inner {
-  /* Adjust the duration to control the speed */
+  
   animation: scroll 40s linear infinite;
 }
 
-/* Pause the animation on hover */
+
 .scroller:hover .scroller__inner {
   animation-play-state: paused;
 }

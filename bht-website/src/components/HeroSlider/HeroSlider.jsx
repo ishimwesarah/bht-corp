@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 
 import './HeroSlider.css';
 
-// import required modules
+
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Button from '../Button/Button';
 

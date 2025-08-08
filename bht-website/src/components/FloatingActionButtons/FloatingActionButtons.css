@@ -1,8 +1,5 @@
-/* ==========================================================================
-   BHT Corporation - Professional Floating Action Button Group
-   ========================================================================== */
 
-/* Animation for the gentle pulsing effect */
+/* Animation  */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -29,15 +26,15 @@
   align-items: flex-end;
 }
 
-/* Base style for BOTH buttons */
+
 .fab {
   display: flex;
   align-items: center;
-  border-radius: 50px; /* Pill/Circle shape */
+  border-radius: 50px;
   border: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
   text-decoration: none;
   overflow: hidden;
 }
@@ -46,13 +43,13 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Icon styling, common to both */
+
 .fab-icon {
   font-size: 1.5rem;
-  min-width: 20px; /* Ensures icon has space */
+  min-width: 20px; 
 }
 
-/* Text label styling, common to both */
+
 .fab-text {
   font-weight: 600;
   font-size: 1rem;
@@ -60,35 +57,35 @@
   padding-left: 0.75rem;
 }
 
-/* --- "Contact Us" Button Specific Styles --- */
+
 .contact-fab {
   background: var(--accent-gold);
   color: var(--navbar-text);
-  padding: 0.8rem 1.5rem; /* Padded by default */
+  padding: 0.8rem 1.5rem; 
   height: 55px;
   animation: pulse 2.5s infinite;
   animation-delay: 2s;
 }
 .contact-fab:hover {
-  background-color: #eab308; /* Darker, more visible gold */
+  background-color: #eab308; 
   animation-play-state: paused;
 }
 
-/* --- "Scroll to Top" Button Specific Styles --- */
+
 .scroll-fab {
   background: var(--neutral-gray);
   color: var(--clean-white);
-  padding: 0.8rem; /* Only icon padding by default */
+  padding: 0.8rem; 
   width: 55px;
   height: 55px;
   justify-content: center;
 }
 .scroll-fab:hover {
-  background: var(--navbar-text); /* Darker, more visible gray */
-  padding-right: 1.5rem; /* Expand padding on hover */
+  background: var(--navbar-text); 
+  padding-right: 1.5rem;
 }
 
-/* The text for the "Scroll to Top" button is hidden by default */
+
 .scroll-fab .fab-text {
   max-width: 0;
   opacity: 0;
@@ -96,7 +93,7 @@
   transition: max-width 0.4s ease, opacity 0.2s ease 0.1s, padding-left 0.4s ease;
 }
 
-/* On hover, reveal the text for the "Scroll to Top" button */
+
 .scroll-fab:hover .fab-text {
   max-width: 100px;
   opacity: 1;

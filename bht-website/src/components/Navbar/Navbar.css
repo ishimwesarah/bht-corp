@@ -1,10 +1,8 @@
-/* ==========================================================================
-   BHT Corporation - Dynamic Scrolling Navigation Bar
-   ========================================================================== */
 
-/* --- Default Navbar State (Top of Page) --- */
+
+
 .navbar {
-  /* The default gradient background */
+  
   background: linear-gradient(to right,
     #E0F0FF 30%,
     #005B96 55%
@@ -14,19 +12,17 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  /* Use 'fixed' to keep it at the top and allow content to scroll underneath */
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
-  /* Smoothly transition the background color change */
   transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-/* --- Scrolled Navbar State --- */
+
 .navbar.scrolled {
-  background: #ffffff; /* Solid light blue background on scroll */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  background: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar-container {
@@ -52,7 +48,6 @@
   transition: height 0.3s ease;
 }
 
-/* --- Menu & Actions Styling --- */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -74,7 +69,6 @@
 }
 
 .nav-link {
-  /* Default Color: White text for the dark part of the gradient */
   color: #e0e0e0;
   font-weight: 500;
   text-decoration: none;
@@ -82,13 +76,12 @@
   border-bottom: 4px solid transparent;
   display: flex;
   align-items: center;
-  /* Smoothly transition text color and border color */
   transition: color 0.4s ease-in-out, border-color 0.4s ease;
 }
 
-/* --- Colors for Links in the SCROLLED State --- */
+
 .navbar.scrolled .nav-link {
-  color: var(--primary-blue); /* Dark blue text on light background */
+  color: var(--primary-blue); 
 }
 .navbar.scrolled .nav-link:hover {
   color: var(--navbar-text);
@@ -100,7 +93,7 @@
   border-bottom-color: var(--navbar-text);
 }
 
-/* Default hover/active states */
+
 .nav-link:hover {
   color: var(--clean-white);
   border-bottom-color: var(--accent-gold);
@@ -117,12 +110,11 @@
   padding-left: 1.5rem;
 }
 
-/* --- Icons Styling --- */
+
 .nav-action-btn, .menu-icon {
   background: none;
   border: none;
   cursor: pointer;
-  /* Default Color: White for the dark part of the gradient */
   color: var(--clean-white);
   font-size: 1.2rem;
   padding: 0.5rem;
@@ -137,23 +129,23 @@
   color: var(--accent-gold);
 }
 
-/* --- Colors for Icons in the SCROLLED State --- */
+
 .navbar.scrolled .nav-action-btn,
 .navbar.scrolled .menu-icon {
-  color: var(--primary-blue); /* Dark blue icon on light background */
+  color: var(--primary-blue); 
 }
 .navbar.scrolled .nav-action-btn:hover {
   color: var(--navbar-text);
 }
 
 .nav-login-btn-wrapper {
-  margin-left: 1.5rem; /* Increased from 0.5rem to 1.5rem for more space */
+  margin-left: 1.5rem; 
   display: flex;
   align-items: center;
-  /* REMOVED: display: none; - This was hiding the button everywhere! */
+  
 }
 
-/* Style the primary button in the navbar */
+
 .navbar .btn--primary {
   background-color: var(--accent-gold);
   color: var(--navbar-text);
@@ -168,7 +160,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Scrolled state: Maintain primary button styling */
+
 .navbar.scrolled .btn--primary {
   background-color: var(--accent-gold);
   color: var(--navbar-text);
@@ -182,21 +174,19 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ==========================================================================
-   Responsive Styles for Mobile Devices (max-width: 960px)
-   ========================================================================== */
+/* Responsive Styles */
 @media screen and (max-width: 960px) {
-  /* Sleeker navbar on mobile */
+ 
   .navbar, .nav-item {
     height: 60px;
   }
 
-  /* Scaled-down logo for mobile */
+ 
   .navbar-logo-img {
     height: 35px;
   }
 
-  /* Scaled-down icons */
+ 
   .nav-action-btn {
     font-size: 1.1rem;
   }
@@ -204,7 +194,7 @@
     font-size: 1.6rem;
   }
 
-  /* General layout adjustments */
+
   .navbar-right {
     flex: 1;
     justify-content: flex-end;
@@ -214,7 +204,7 @@
     display: none;
   }
 
-  /* The slide-out menu style */
+
   .nav-menu.active {
     display: flex;
     flex-direction: column;
@@ -230,7 +220,7 @@
     padding-top: 2rem;
   }
 
-  /* Full-width menu items on mobile */
+ 
   .nav-item, .nav-btn {
     width: 100%;
     justify-content: center;
@@ -242,24 +232,24 @@
     padding: 1.5rem;
   }
 
-  /* Mobile-specific hover/active states */
+
   .nav-link:hover, .nav-link.active {
     border-bottom: none;
     background: #004a7c;
     border-radius: 5px;
   }
 
-  /* Make the menu icon visible */
+
   .menu-icon {
     display: block;
   }
 
-  /* MOVED: Hide login button on mobile (moved from global scope) */
+  
   .nav-login-btn-wrapper {
     display: none;
   }
 
-  /* Show login button in mobile menu when active */
+ 
   .nav-menu.active .nav-login-btn-wrapper {
     display: block;
     width: 100%;

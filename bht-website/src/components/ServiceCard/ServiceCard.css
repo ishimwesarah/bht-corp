@@ -3,31 +3,33 @@
   padding: 2.5rem 2rem;
   border-radius: 10px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Fallback for non-JS */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
   display: flex;
   flex-direction: column;
+  height: auto; /* Ensure card height adapts to content */
 }
 
-/* --- NEW STYLES START HERE --- */
-
+/* Image container - let it adapt to image height */
 .service-card-image-container {
   width: 100%;
-  /* Define a fixed aspect ratio for consistency */
-  height: 180px; 
   margin-bottom: 2rem;
   border-radius: 8px;
-  overflow: hidden; /* Ensures the image respects the border-radius */
+  overflow: hidden; /* Changed from visible to prevent any overflow issues */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0; /* Allows container to shrink below content size */
 }
 
+/* Let image display at natural size */
 .service-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This is key: it scales the image to fill the container without distortion */
+  max-width: 100%;
+  max-height: 300px; /* Set a reasonable max-height to prevent huge images */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Changed to contain to show full image */
 }
-
-/* --- NEW STYLES END HERE --- */
-
 
 .service-card h3 {
   color: var(--primary-blue);
@@ -35,7 +37,7 @@
 }
 
 .service-card p {
-    flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .card-link {

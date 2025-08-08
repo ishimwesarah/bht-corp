@@ -3,10 +3,7 @@ import {
   FaGem, FaMugHot, FaPalette, FaPrint, FaTshirt, FaCamera, FaVideo, FaTags, FaBoxOpen, FaEdit, FaBroadcastTower, FaBrush 
 } from 'react-icons/fa';
 
-// --- ACTION REQUIRED: ADD YOUR SERVICE-SPECIFIC IMAGES TO THE ASSETS FOLDER ---
-// --- AND UPDATE THESE IMPORT PATHS ACCORDINGLY ---
 
-// Placeholders for Technology Service Images
 import maintenanceImg from '../assets/services/maint.jpg';
 import networkImg from '../assets/services/network.jpg';
 import websiteImg from '../assets/services/website.jpg';
@@ -19,11 +16,11 @@ import studyAbroadImg from '../assets/services/elearning.jpg';
 import visaImg from '../assets/services/visa.jpg';
 
 // Placeholders for Design Service Images
-import crystalImg from '../assets/services/visa.jpg';
-import mugImg from '../assets/services/website.jpg';
-import epoxyImg from '../assets/services/website.jpg';
-import heatPressImg from '../assets/services/government.jpg';
-import engravingImg from '../assets/services/tracking.jpg';
+import crystalImg from '../assets/crystal.jpg';
+import mugImg from '../assets/mug.jpg';
+import epoxyImg from '../assets/expoxy.jpg';
+import heatPressImg from '../assets/heatpress.jpg';
+import engravingImg from '../assets/engraving.jpg';
 import uvPrintingImg from '../assets/services/tracking.jpg';
 import invitationImg from '../assets/services/tracking.jpg';
 import stampImg from '../assets/services/tracking.jpg';
@@ -54,14 +51,14 @@ export const allTechServices = [
     description: 'Installation and repair of robust, high-speed networks for home and office, ensuring seamless connectivity.', 
     icon: FaNetworkWired, image: networkImg,
     deliverables: ['Site Survey & Analysis', 'Hardware Installation & Setup', 'Secure Wi-Fi Configuration', 'Ongoing Support & Troubleshooting'],
-    ctaText: "Quote Your Network Setup"
+    ctaText: "Reach out for Your Network Setup"
   },
   { 
     id: 'website-design', name: 'Website Designing', 
     description: 'Creating beautiful, functional, and responsive websites that tell your brand’s story and drive growth.', 
     icon: FaLaptopCode, image: websiteImg,
     deliverables: ['Responsive on all devices', 'SEO-friendly structure', 'Custom UI/UX design', 'Content Management System'],
-    ctaText: "Get a Quote for Your Website"
+    ctaText: "Contact us for Your Website"
   },
   { 
     id: 'phone-tracking', name: 'Stolen Phone Tracking', 
@@ -137,11 +134,11 @@ export const allDesignServices = [
     ctaText: "Create an Epoxy Piece"
   },
   { 
-    id: 'heat-press', name: 'Heat Press (Sublimation)', 
+    id: 'heat-press', name: 'Heat Press', 
     description: 'Vibrant, full-color printing on a variety of materials and apparel, perfect for custom gear.', 
     icon: FaPrint, image: heatPressImg,
     deliverables: ['Polyester & Polymer-coated Items', 'Vibrant, Permanent Colors', 'Photo-realistic Prints', 'No-feel, Breathable Finish'],
-    ctaText: "Quote a Heat Press Job"
+    ctaText: "Reach out for a Heat Press Job"
   },
   { 
     id: 'engraving', name: 'Engraving Machine', 
@@ -155,7 +152,7 @@ export const allDesignServices = [
     description: 'High-quality, durable direct-to-object printing on a vast range of flat or cylindrical surfaces.', 
     icon: FaPrint, image: uvPrintingImg,
     deliverables: ['Vibrant, Full-color Prints', 'Textured & 3D Effects (Varnish)', 'Excellent Adhesion & Durability', 'Wide Substrate Compatibility'],
-    ctaText: "Get a UV Printing Quote"
+    ctaText: "Get a UV Printing "
   },
   { 
     id: 'invitation-design', name: 'Invitation Design', 
@@ -225,7 +222,7 @@ export const allDesignServices = [
     description: 'High-impact banners, posters, and signs for maximum visibility.', 
     icon: FaPrint, image: largeFormatImg, 
     deliverables: ['Vinyl Banners, Posters, Canvases', 'Indoor & Outdoor Materials', 'Vibrant, Fade-resistant Inks', 'Grommets & Finishing Options'], 
-    ctaText: "Quote Large Format Printing" 
+    ctaText: "Get Large Format Printing" 
   },
   { 
     id: 'package-design', name: 'Package Design', 

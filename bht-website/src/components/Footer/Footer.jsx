@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             <li>Musanze – Rwanda</li>
             <li>+250 784 589 508</li>
-            <li>info@bhtcorp.com</li>
+            <li>bhtcorpor@gmail.com</li>
           </ul>
         </div>
       </div>

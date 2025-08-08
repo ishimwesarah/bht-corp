@@ -17,6 +17,14 @@ import FAQ from './pages/FAQ/FAQ';
 import Careers from './pages/Careers/Careers';
 import FloatingActionButtons from './components/FloatingActionButtons/FloatingActionButtons';
 
+//import library for icons we will use in About page
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
+// Add icons to the library
+library.add(faEnvelope, faLinkedin, faTwitter);
+
 function App() {
   return (
     <Router>

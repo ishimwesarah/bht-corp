@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-// Import all our service data to search through
 import { allTechServices, allDesignServices } from '../../data/fullServiceData';
 import './SearchModal.css';
 
@@ -13,7 +12,7 @@ const SearchModal = ({ isOpen, onClose }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  // Perform search whenever the search term changes
+  
   useEffect(() => {
     if (searchTerm.trim() === '') {
       setSearchResults([]);
@@ -27,7 +26,7 @@ const SearchModal = ({ isOpen, onClose }) => {
     setSearchResults(filtered);
   }, [searchTerm]);
 
-  // Handle closing the modal with the Escape key
+ 
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.keyCode === 27) {
@@ -41,7 +40,7 @@ const SearchModal = ({ isOpen, onClose }) => {
     };
   }, [onClose]);
 
-  // Reset search term when modal closes
+  
   useEffect(() => {
       if (!isOpen) {
           setSearchTerm('');

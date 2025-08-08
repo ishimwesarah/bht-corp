@@ -12,15 +12,15 @@ const Button = ({
   onClick,
   buttonStyle,
   buttonSize,
-  to // Add a 'to' prop for Link functionality
+  to 
 }) => {
-  // Use the provided style/size, or default to the first in the array
+  
   const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   const className = `btn ${checkButtonStyle} ${checkButtonSize}`;
 
-  // If a 'to' prop is passed, render a Link component
+  
   if (to) {
     return (
       <Link to={to} className={className}>
@@ -29,7 +29,7 @@ const Button = ({
     );
   }
 
-  // Otherwise, render a standard button
+  
   return (
     <button
       className={className}

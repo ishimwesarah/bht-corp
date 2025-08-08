@@ -10,7 +10,7 @@ import logoMarriott from '../../assets/marriot-logo.png';
 import logoRwandair from '../../assets/rwandair.jpg';
 import logoIhuzo from '../../assets/ihuzo.jpg';
 
-// --- UPDATE THE DATA ARRAY ---
+
 const partners = [
   { name: 'Rwanda Development Board', logo: logoRDB },
   { name: 'MTN Rwanda', logo: logoMTN },
@@ -18,7 +18,7 @@ const partners = [
   { name: 'Kigali Marriott Hotel', logo: logoMarriott },
   { name: 'RwandAir', logo: logoRwandair },
   { name: 'Ihuzo', logo: logoIhuzo },
-  // Add more partners here as needed
+ 
 ];
 
 const PartnersSection = () => {
@@ -29,7 +29,7 @@ const PartnersSection = () => {
       </div>
       <InfiniteScroller>
         {partners.map((partner, index) => (
-          // The container now holds an <img> tag instead of an icon
+          
           <div key={index} className="partner-logo-container">
             <img 
               src={partner.logo} 

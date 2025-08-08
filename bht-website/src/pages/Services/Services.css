@@ -107,13 +107,22 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   margin-bottom: 2rem;
-  height: 20rem;
+  /* Remove fixed height */
+  height: auto;
+  /* Add max-height if needed to prevent extremely tall images */
+  max-height: 400px;
+  /* Center the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .detail-pane-image-frame img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+  /* Let image display at natural size */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Show full image without cropping */
 }
 .detail-pane-content h3 {
   color: var(--navbar-text);
@@ -146,7 +155,8 @@
   box-shadow: 0 8px 20px rgba(0, 91, 150, 0.08);
 }
 .mobile-detail-content .detail-pane-image-frame {
-  height: 200px;
+  height: auto;
+  max-height: 300px; 
 }
 .service-list-item.active-mobile {
   border-bottom-left-radius: 0;

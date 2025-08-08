@@ -6,7 +6,7 @@ import 'swiper/css/autoplay';
 import './PageHero.css';
 import { EffectFade, Autoplay } from 'swiper/modules';
 
-// Import images for the services page slider
+
 import techImg from '../../assets/this.png';
 import designImg from '../../assets/that.png';
 

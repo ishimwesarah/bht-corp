@@ -31,7 +31,6 @@ const FloatingActionButtons = () => {
 
   return (
     <div className="fab-container">
-      {/* The "Contact Us" button is always visible */}
       <Link to="/contact" className="fab contact-fab">
         <FaCommentDots className="fab-icon" />
         <span className="fab-text">Contact Us</span>
