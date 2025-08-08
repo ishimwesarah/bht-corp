@@ -5,6 +5,7 @@ import teamMember1 from '../../assets/baha.jpg'; // Example image
 import teamMember2 from '../../assets/jeho.jpg'; 
 import teamMember3 from '../../assets/mug.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from '../../assets/logo.png'; // Example image
 
 // Animation Variants for Framer Motion
 const fadeIn = {
@@ -46,7 +47,7 @@ const About = () => {
                 <p>This principle forms the bedrock of our business structure, ensuring that all our endeavors are grounded in purpose and integrity.</p>
             </div>
             <div className="structure-image">
-                {/* You can place a symbolic image here */}
+               <img src={logo} alt="Business Structure" />
             </div>
         </motion.div>
 

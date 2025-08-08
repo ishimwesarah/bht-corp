@@ -1,68 +1,128 @@
-/* ==========================================================================
-   BHT Corporation - Advanced FAQ Page with Chatbot
-   ========================================================================== */
+/* ===== ABOUT PAGE STYLES ===== */
+.about-page {
+  background-color: var(--light-gray-bg);
+}
 
-.faq-hero {
-  background: linear-gradient(to top right, #E0F0FF, #BDE0FE);
+/* === Hero Section === */
+.about-hero {
+  background-color: var(--primary-blue);
+  color: var(--clean-white);
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
 }
-.faq-hero h1 {
-  color: var(--navbar-text);
-  font-size: 3rem;
+
+.about-hero h1 {
+  color: var(--clean-white);
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
-.faq-hero p {
-  color: var(--primary-blue);
-  font-size: 1.2rem;
+
+.about-hero p {
+  font-size: 1.25rem;
+  font-weight: 300;
   max-width: 700px;
-  margin: 1rem auto 0 auto;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  line-height: 1.6;
 }
 
-/* --- The Main Two-Column Layout --- */
-.faq-main-content {
-  padding: 5rem 1rem;
+/* === Content Sections === */
+.about-content {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.faq-grid {
-  display: grid;
-  /* Create two columns, with the chatbot column being slightly larger */
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
-  align-items: flex-start; /* Aligns items to the top */
+.about-section {
+  margin-bottom: 6rem;
 }
 
-/* --- Section Title Styling --- */
-.faq-section-title {
-  font-size: 1.8rem;
-  color: var(--navbar-text);
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--light-gray-bg);
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  color: var(--primary-blue);
+  font-size: 2.2rem;
 }
 
-/* --- Accordion Styling (Right Column) --- */
-.faq-accordion {
+.about-section h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-section p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--neutral-gray);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* === Business Structure Section === */
+.business-structure {
   display: flex;
-  flex-direction: column;
-}
-/* We get the styling for the accordion items from the global
-   FAQItem.css file, so we don't need to repeat it here. */
-
-/* --- Responsive Styles --- */
-@media screen and (max-width: 1024px) {
-  .faq-grid {
-    /* Stack the columns on tablets and mobile */
-    grid-template-columns: 1fr;
-    gap: 5rem; /* Increase gap when stacked */
-  }
+  align-items: center;
+  gap: 4rem;
+  background: var(--clean-white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
 }
 
-@media screen and (max-width: 768px) {
-    .faq-hero h1 { font-size: 2.5rem; }
-    .faq-main-content { padding: 4rem 1rem; }
+.structure-text {
+  flex: 1;
 }
 
-/* Team Section */
+.structure-image {
+  flex: 1;
+  min-height: 300px;
+  background: var(--light-gray-bg) url('../../assets/about-principle.jpg') center/cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.business-structure blockquote {
+  background-color: rgba(0, 91, 150, 0.05);
+  border-left: 4px solid var(--accent-gold);
+  padding: 2rem;
+  margin: 2.5rem 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--primary-blue);
+  line-height: 1.7;
+}
+
+.business-structure blockquote span {
+  display: block;
+  text-align: right;
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+/* === Team Section === */
+.team-section {
+  background: var(--clean-white);
+  padding: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -72,29 +132,28 @@
 
 .team-member-card {
   background: var(--clean-white);
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 12px;
   padding: 2.5rem;
   transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .team-member-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 91, 150, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 91, 150, 0.1);
+  border-color: var(--primary-blue-light);
 }
 
 .team-member-image-container {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 2rem;
   position: relative;
   overflow: hidden;
   border: 5px solid var(--light-gray-bg);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
 }
 
@@ -111,7 +170,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 91, 150, 0.7);
+  background: rgba(0, 91, 150, 0.8);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -125,24 +184,25 @@
 }
 
 .team-member-image-container:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .social-links a {
   color: white;
   background: rgba(255, 255, 255, 0.2);
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .social-links a:hover {
@@ -152,34 +212,76 @@
 
 .team-member-card h3 {
   color: var(--primary-blue);
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .team-member-card span {
   display: block;
   color: var(--accent-gold);
   font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .team-member-card p {
   text-align: center;
   color: var(--neutral-gray);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
   margin-top: 1rem;
 }
 
+/* === Responsive Design === */
+@media (max-width: 992px) {
+  .business-structure {
+    flex-direction: column;
+  }
+  
+  .structure-image {
+    width: 100%;
+    min-height: 250px;
+  }
+}
+
 @media (max-width: 768px) {
-  .team-member-image-container {
-    width: 160px;
-    height: 160px;
+  .about-hero {
+    padding: 4rem 0;
+  }
+  
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .about-section {
+    margin-bottom: 4rem;
   }
   
   .team-grid {
+    grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  .team-member-image-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-content {
+    padding: 3rem 1rem;
+  }
+  
+  .business-structure,
+  .team-section {
+    padding: 2rem;
+  }
+  
+  .team-member-card {
+    padding: 1.5rem;
   }
 }
