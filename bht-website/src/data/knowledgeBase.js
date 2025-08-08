@@ -37,4 +37,4 @@ export const knowledgeBase = [
   // Add more Q&A objects here
 ];
 
-export const defaultAnswer = "That's a great question. I'm still learning about that topic. Could you try rephrasing, or would you like to get in touch with our human team via the Contact Us page for more detailed information?";
+export const defaultAnswer = "While I don't have specific details about that, I can tell you that BHT Corporation specializes in technology solutions and creative design services. Would you like me to: \n1) Connect you with our team \n2) Answer a related question \n3) Provide our contact information?";
