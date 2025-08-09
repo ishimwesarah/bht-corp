@@ -103,7 +103,7 @@ const Home = () => {
       <HomeCTA />
 
       {/* 6. The new advanced, scrolling Partners section */}
-      {/* <PartnersSection /> */}
+      <PartnersSection />
       
     </div>
   );
