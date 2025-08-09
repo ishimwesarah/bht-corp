@@ -16,10 +16,11 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Button from '../Button/Button';
 
 
-import slide1Img from '../../assets/home.jpg';
-import slide2Img from '../../assets/that.png';
-import slide3Img from '../../assets/too.png';
+import slide1Img from '../../assets/homee.jpg';
+
+import slide3Img from '../../assets/serv.jpg';
 import slide4Img from '../../assets/sky.jpg';
+import slide5Img from '../../assets/inters.jpg';
 
 const sliderData = [
   {
@@ -29,12 +30,12 @@ const sliderData = [
     buttonText: 'Explore Our Services',
     buttonLink: '/services'
   },
-  {
-    image: slide2Img,
-    pretitle: 'Featured Project',
-    title: 'E-commerce for Local Artisans',
-    buttonText: 'View Our Portfolio',
-    buttonLink: '/portfolio'
+   {
+    image: slide5Img, 
+    pretitle: 'GROW WITH US',
+    title: 'Shape the Future of Tech & Design',
+    buttonText: 'Start Your Application',
+    buttonLink: '/careers'
   },
   {
     image: slide3Img,

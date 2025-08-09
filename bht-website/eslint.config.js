@@ -30,6 +30,7 @@ export default defineConfig([
       },
       globals: {
         ...globals.browser, // Use browser globals like 'window', 'document'
+        process: 'readonly', // Added this line to allow 'process' global in src files
       },
     },
     rules: {

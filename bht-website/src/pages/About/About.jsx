@@ -47,7 +47,13 @@ const About = () => {
                 <p>This principle forms the bedrock of our business structure, ensuring that all our endeavors are grounded in purpose and integrity.</p>
             </div>
             <div className="structure-image">
-               <img src={logo} alt="Business Structure" />
+              <div className="logo-display">
+                 <img src={logo}  
+                 alt="BHT Corporation Logo" 
+        className="company-logo"/>
+        <div className="logo-glow"></div>
+              </div>
+              
             </div>
         </motion.div>
 
