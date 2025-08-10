@@ -87,3 +87,31 @@
 .swiper-pagination-bullet-active {
   background-color: var(--accent-gold) !important;
 }
+
+/* Existing styles above... */
+
+@media screen and (max-width: 768px) {
+  .slide-pretitle {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .slide-title {
+    font-size: 2rem;
+    max-width: 90%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Even smaller for very small phones */
+@media screen and (max-width: 480px) {
+  .slide-pretitle {
+    font-size: 0.9rem;
+  }
+
+  .slide-title {
+    font-size: 1.5rem;
+    max-width: 90%;
+    margin-bottom: 1rem;
+  }
+}

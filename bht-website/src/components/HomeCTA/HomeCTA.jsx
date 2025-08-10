@@ -9,7 +9,7 @@ const HomeCTA = () => {
         <h2>Let's Build Something Great Together</h2>
         <p>Have a project in mind? We'd love to hear about it. Contact us for a free, no-obligation consultation.</p>
         <Button to="/contact" buttonStyle="btn--primary" buttonSize="btn--large">
-          Get Your Free Quote
+          Let’s Discuss Your Project
         </Button>
       </div>
     </section>

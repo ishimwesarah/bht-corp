@@ -1,8 +1,4 @@
-
-
-
 .navbar {
-  
   background: linear-gradient(to right,
     #E0F0FF 30%,
     #005B96 55%
@@ -18,7 +14,6 @@
   z-index: 999;
   transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
-
 
 .navbar.scrolled {
   background: #ffffff; 
@@ -79,7 +74,6 @@
   transition: color 0.4s ease-in-out, border-color 0.4s ease;
 }
 
-
 .navbar.scrolled .nav-link {
   color: var(--primary-blue); 
 }
@@ -92,7 +86,6 @@
   font-weight: 700;
   border-bottom-color: var(--navbar-text);
 }
-
 
 .nav-link:hover {
   color: var(--clean-white);
@@ -109,7 +102,6 @@
   align-items: center;
   padding-left: 1.5rem;
 }
-
 
 .nav-action-btn, .menu-icon {
   background: none;
@@ -129,7 +121,6 @@
   color: var(--accent-gold);
 }
 
-
 .navbar.scrolled .nav-action-btn,
 .navbar.scrolled .menu-icon {
   color: var(--primary-blue); 
@@ -142,9 +133,7 @@
   margin-left: 1.5rem; 
   display: flex;
   align-items: center;
-  
 }
-
 
 .navbar .btn--primary {
   background-color: var(--accent-gold);
@@ -159,7 +148,6 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
 
 .navbar.scrolled .btn--primary {
   background-color: var(--accent-gold);
@@ -176,24 +164,20 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 960px) {
- 
   .navbar, .nav-item {
     height: 60px;
   }
 
- 
   .navbar-logo-img {
     height: 35px;
   }
 
- 
   .nav-action-btn {
     font-size: 1.1rem;
   }
   .menu-icon {
     font-size: 1.6rem;
   }
-
 
   .navbar-right {
     flex: 1;
@@ -204,59 +188,99 @@
     display: none;
   }
 
-
+  /* FIXED: Mobile menu slides from left and doesn't cover full screen */
   .nav-menu.active {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 1rem;
-    width: 100%;
-    position: absolute;
+    width: 280px; /* Fixed width instead of 100% */
+    max-width: 80%; /* Responsive max-width */
+    position: fixed; /* Changed from absolute to fixed */
     top: 60px;
+    left: 0; /* Starts from left */
     height: calc(100vh - 60px);
-    left: 0;
     background: var(--primary-blue);
-    padding-top: 2rem;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transform: translateX(0); /* Make sure it's visible */
+    z-index: 998; /* Ensure it's below navbar but above content */
   }
 
- 
+  /* Add overlay to close menu when clicking outside */
+  .nav-menu.active::before {
+    content: '';
+    position: fixed;
+    top: 60px;
+    left: 280px; /* Start where menu ends */
+    width: calc(100vw - 280px);
+    height: calc(100vh - 60px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+  }
+
   .nav-item, .nav-btn {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start; /* Align to left */
     height: auto;
   }
+  
   .nav-link {
     width: 100%;
-    text-align: center;
-    padding: 1.5rem;
+    text-align: left; /* Changed from center to left */
+    padding: 1rem 1.5rem;
+    /* FIXED: Better text color for mobile menu */
+    color: #ffffff !important; /* Force white text in mobile menu */
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
   }
-
 
   .nav-link:hover, .nav-link.active {
     border-bottom: none;
     background: #004a7c;
     border-radius: 5px;
+    color: #ffffff !important; /* Keep text white on hover/active */
   }
-
 
   .menu-icon {
     display: block;
+    position: relative;
+    z-index: 1000; /* Ensure hamburger is always clickable */
   }
 
-  
   .nav-login-btn-wrapper {
     display: none;
   }
 
- 
   .nav-menu.active .nav-login-btn-wrapper {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: left; /* Changed from center to left */
     padding: 1rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
+  
   .nav-menu.active .nav-login-btn-wrapper .btn {
-    width: 80%;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* FIXED: Ensure mobile menu text is always visible */
+  .nav-menu.active .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+  }
+  
+  .nav-menu.active .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-menu.active .nav-link.active {
+    color: var(--accent-gold) !important;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 700;
   }
 }

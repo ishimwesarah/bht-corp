@@ -400,6 +400,7 @@ const EnhancedFAQ = () => {
           min-height: 100vh;
           background: linear-gradient(135deg, #E0F0FF 0%, #F5F5F5 100%);
           padding: 2rem 0;
+          margin-top: 30px;
         }
 
         .faq-hero {

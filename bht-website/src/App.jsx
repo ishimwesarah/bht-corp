@@ -28,7 +28,7 @@ library.add(faEnvelope, faLinkedin, faTwitter);
 function App() {
   return (
     <Router>
-      <TopBar />
+      {/* <TopBar /> */}
       <Navbar />
       <main>
         <Routes>
