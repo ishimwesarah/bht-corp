@@ -10,7 +10,7 @@ import project2Img from '../../assets/home.jpg';
 import project3Img from '../../assets/sky.jpg';
 import project4Img from '../../assets/techicon.jpg';
 import project5Img from '../../assets/that.png';
-import project6Img from '../../assets/this.png';
+import project6Img from '../../assets/int.jpg';
 
 const portfolioData = [
   {
@@ -46,8 +46,8 @@ const portfolioData = [
   {
     image: project6Img,
     category: 'Visa Assistance',
-    title: 'Student Visa Success Story',
-    description: 'Successfully guided a student through the complex application process for a Canadian university.',
+    title: 'Student Visa ',
+    description: 'guides a student through the complex application process for different universities university.',
   },
 ];
 

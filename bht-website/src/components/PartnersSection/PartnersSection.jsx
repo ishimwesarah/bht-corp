@@ -3,21 +3,21 @@ import InfiniteScroller from '../InfiniteScroller/InfiniteScroller';
 import './PartnersSection.css';
 
 
-import logoRDB from '../../assets/rdb.png';
-import logoMTN from '../../assets/mtn-logo.png';
-import logoBK from '../../assets/bank of kigali.png';
-import logoMarriott from '../../assets/marriot-logo.png';
-import logoRwandair from '../../assets/rwandair.jpg';
-import logoIhuzo from '../../assets/ihuzo.jpg';
+import logo1 from '../../assets/cep.jpg';
+import logo2 from '../../assets/atha.jpg';
+import logo3 from '../../assets/hb.jpg';
+// import logoMarriott from '../../assets/marriot-logo.png';
+// import logoRwandair from '../../assets/rwandair.jpg';
+// import logoIhuzo from '../../assets/ihuzo.jpg';
 
 
 const partners = [
-  { name: 'Rwanda Development Board', logo: logoRDB },
-  { name: 'MTN Rwanda', logo: logoMTN },
-  { name: 'Bank of Kigali', logo: logoBK },
-  { name: 'Kigali Marriott Hotel', logo: logoMarriott },
-  { name: 'RwandAir', logo: logoRwandair },
-  { name: 'Ihuzo', logo: logoIhuzo },
+  { name: 'CEP', logo: logo1 },
+  { name: 'MTN Rwanda', logo: logo2 },
+  { name: 'Bank of Kigali', logo: logo3 },
+  // { name: 'Kigali Marriott Hotel', logo: logoMarriott },
+  // { name: 'RwandAir', logo: logoRwandair },
+  // { name: 'Ihuzo', logo: logoIhuzo },
  
 ];
 

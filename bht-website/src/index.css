@@ -1,6 +1,6 @@
 /* src/index.css */
 
-/* Import a professional font from Google Fonts */
+/* Import Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* --- CSS Variables for your Color Palette --- */
@@ -11,7 +11,7 @@
   --support-green: #3CB371;
   --clean-white: #FFFFFF;
   --light-gray-bg: #F5F5F5;
-  --navbar-text: #1a1a40; /* Specific navy blue from your request */
+  --navbar-text: #1a1a40;
   --font-family-main: 'Poppins', sans-serif;
 }
 
@@ -23,7 +23,7 @@
 }
 
 html {
-   scroll-behavior: smooth;
+  scroll-behavior: smooth;
   font-size: 15px;
 }
 
@@ -32,20 +32,30 @@ body {
   background-color: var(--clean-white);
   color: var(--neutral-gray);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: var(--navbar-text);
   line-height: 1.2;
   margin-bottom: 1rem;
+  font-family: var(--font-family-main);
+  font-weight: 600;
 }
 
 h1 { font-size: 3rem; }
 h2 { font-size: 2.2rem; }
 h3 { font-size: 1.5rem; }
 
+p, span, a, li, button, input, textarea, label {
+  font-family: var(--font-family-main);
+}
+
 p {
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 a {
@@ -58,6 +68,7 @@ a:hover {
   color: var(--accent-gold);
 }
 
+/* Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -66,4 +77,27 @@ a:hover {
 
 section {
   padding: 5rem 0;
+}
+
+/* Form elements */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utility classes */
+.text-bold {
+  font-weight: 700;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-light {
+  font-weight: 300;
 }

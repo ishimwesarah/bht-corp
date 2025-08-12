@@ -4,12 +4,15 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 import Button from '../Button/Button'; 
 import SearchModal from '../SearchModal/SearchModal';
+import LoginModal from '../LoginModal/LoginModal'; // <-- 1. IMPORT LOGIN MODAL
 import bhtLogo from '../../assets/logo.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   
+  // --- 2. ADD STATE FOR THE LOGIN MODAL ---
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
  
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -18,6 +21,12 @@ const Navbar = () => {
   const handleOpenSearch = () => {
     setMenuOpen(false);
     setIsSearchOpen(true);
+  };
+  
+  // --- 3. ADD A HANDLER TO OPEN THE LOGIN MODAL ---
+  const handleOpenLogin = () => {
+    setMenuOpen(false); // Close mobile menu if it's open
+    setIsLoginOpen(true);
   };
   
   useEffect(() => {
@@ -71,6 +80,13 @@ const Navbar = () => {
                 <NavLink to="/faq" className="nav-link" onClick={closeMobileMenu}>FAQ</NavLink>
               </li>
               
+              {/* --- 4. ADD LOGIN BUTTON FOR MOBILE MENU --- */}
+              <li className="nav-login-btn-wrapper-mobile">
+                  <Button buttonStyle="btn--primary" buttonSize="btn--large" onClick={handleOpenLogin}>
+                    Login
+                  </Button>
+              </li>
+              
             </ul>
 
             <button className="nav-action-btn" onClick={handleOpenSearch}>
@@ -78,10 +94,11 @@ const Navbar = () => {
             </button>
 
             <div className="nav-login-btn-wrapper">
-  <Button to="/login" buttonStyle="btn--primary">
-    Login
-  </Button>
-</div>
+              {/* --- 5. UPDATE BUTTON TO USE onClick INSTEAD of to --- */}
+              <Button onClick={handleOpenLogin} buttonStyle="btn--primary">
+                Login
+              </Button>
+            </div>
 
             <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <FaTimes /> : '☰'}
@@ -91,6 +108,9 @@ const Navbar = () => {
       </nav>
 
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      
+      {/* --- 6. RENDER THE LOGIN MODAL --- */}
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
 };
