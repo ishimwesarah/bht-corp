@@ -1,61 +1,35 @@
+/* ==========================================================================
+   BHT Corporation - High-End Login Modal
+   ========================================================================== */
+
 .login-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(16, 28, 51, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   padding: 1rem;
 }
 
 /* --- The main two-column container --- */
 .login-modal-content {
   display: grid;
-  grid-template-columns: 1fr 1.2fr; /* Visual part is slightly smaller */
+  grid-template-columns: 1.2fr 1fr; 
   width: 100%;
   max-width: 800px;
-  max-height: 90vh; /* Prevents overflow on shorter screens */
+  max-height: 90vh;
   background: var(--clean-white);
   border-radius: 16px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  overflow: hidden; /* Important for containing the columns */
+  overflow: hidden;
 }
 
-/* --- Left Side: Visual Branding --- */
-.login-modal-visual {
-  background: linear-gradient(to bottom, var(--primary-blue), #004a7c);
-  color: var(--clean-white);
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.login-modal-logo {
-  height: 80px;
-  margin-bottom: 2rem;
-}
-.login-modal-visual h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.login-modal-visual p {
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-/* --- Right Side: The Form --- */
+/* --- Left Side (The Form) --- */
 .login-modal-form-section {
   padding: 2.5rem;
   position: relative;
-  overflow-y: auto; /* THIS IS THE FIX for the overflow bug */
+  overflow-y: auto;
 }
 .login-close-btn {
   position: absolute; top: 1rem; right: 1rem; background: var(--light-gray-bg);
@@ -66,24 +40,35 @@
 .login-close-btn:hover { background-color: #ddd; transform: rotate(90deg); }
 
 .login-modal-form-section h3 {
-  color: var(--navbar-text); font-size: 1.8rem; margin-bottom: 2rem; text-align: center;
+  color: var(--navbar-text); font-size: 1.8rem; margin-bottom: 2rem; text-align: left;
 }
 
-/* Form elements styling (inputs, buttons, etc.) */
+/* Form elements styling */
 .login-form-group { margin-bottom: 1.25rem; }
 .login-form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-.login-form-group input { width: 100%; padding: 0.8rem 1rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
-.login-form-group input:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 91, 150, 0.15); }
+.login-form-group input { 
+    width: 100%; padding: 0.8rem 1rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; 
+    transition: all 0.3s ease;
+}
+.login-form-group input:focus { 
+    outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(0, 91, 150, 0.15); 
+}
 
 .login-options { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-bottom: 1.5rem; }
 .remember-me { display: flex; align-items: center; gap: 0.5rem; color: var(--neutral-gray); }
 .forgot-password { color: var(--primary-blue); font-weight: 600; }
 
 .login-submit-btn {
-  width: 100%; padding: 1rem; border: none; border-radius: 8px; background: var(--primary-blue);
-  color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease;
+  width: 100%; padding: 1rem; border: none; border-radius: 8px; 
+  background: var(--primary-blue);
+  color: var(--clean-white);
+  font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
 }
-.login-submit-btn:hover { background-color: #004a7c; }
+.login-submit-btn:hover { 
+    background-color: #004a7c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
 .login-divider { display: flex; align-items: center; text-align: center; margin: 1.5rem 0; color: #aaa; }
 .login-divider::before, .login-divider::after { content: ''; flex: 1; border-bottom: 1px solid #ddd; }
@@ -97,15 +82,67 @@
 .google-login-btn:hover { background-color: var(--light-gray-bg); border-color: #aaa; }
 .google-icon { font-size: 1.2rem; color: #DB4437; }
 
-.login-footer-text { text-align: center; font-size: 0.85rem; color: #aaa; margin-top: 1.5rem; }
+/* --- Right Side (Visual Branding) --- */
+.login-modal-visual {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-blue) 100%);
+  color: var(--clean-white);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.login-modal-logo {
+  height: 80px;
+  margin-bottom: 2rem;
+  filter: brightness(0) invert(1);
+}
+.login-modal-visual h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.login-modal-visual p {
+  opacity: 0.8;
+  line-height: 1.6;
+}
+.login-footer-text {
+  font-size: 0.85rem;
+  color: var(--clean-white);
+  opacity: 0.7;
+  margin-top: auto;
+  padding-top: 2rem;
+}
 
-/* --- Responsive Styles for the Modal --- */
+/* ==========================================================================
+   Responsive Styles for the Modal
+   ========================================================================== */
 @media screen and (max-width: 768px) {
+  /* --- KEY CHANGE #1: HIDE THE DESKTOP VISUAL PANEL --- */
   .login-modal-visual {
-    display: none; /* Hide the visual branding part on mobile */
+    display: none; 
   }
+
   .login-modal-content {
     grid-template-columns: 1fr; /* Go to a single column layout */
     max-height: 95vh;
+  }
+
+  /* --- KEY CHANGE #2: RE-INTEGRATE THE BRANDING ON MOBILE --- */
+  /* We use a pseudo-element to add the logo and text back into the form section */
+  .login-modal-form-section::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-image: url('../../assets/logo.png'); /* Assumes logo.png is your dark logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .login-modal-form-section h3 {
+    text-align: center; /* Center the "Client Login" text on mobile */
   }
 }
