@@ -35,7 +35,7 @@ const Contact = () => {
     setSubmitStatus(null);
     try {
       // The URL points to your new Express backend endpoint
-      const response = await fetch('http://localhost:5000/api/email/contact', {
+      const response = await fetch('https://bht-backend.onrender.com/api/email/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

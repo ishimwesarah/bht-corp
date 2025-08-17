@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const apiClient = axios.create({
   // Make sure this is the correct URL for your running backend
-  baseURL: 'http://localhost:5000/api', 
+  baseURL: 'https://bht-backend.onrender.com/api', 
 });
 
 // This interceptor is crucial. It automatically adds the token to every request.

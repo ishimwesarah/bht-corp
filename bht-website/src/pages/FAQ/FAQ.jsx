@@ -47,7 +47,7 @@ const EnhancedChatbot = () => {
 
     try {
       // --- THIS IS THE REAL INTEGRATION ---
-      const response = await fetch('http://localhost:5000/api/ai/ask', {
+      const response = await fetch('https://bht-backend.onrender.com/api/ai/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: currentQuery }),
