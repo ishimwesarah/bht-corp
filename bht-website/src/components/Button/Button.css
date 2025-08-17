@@ -75,3 +75,13 @@
   background-color: var(--clean-white);
   color: var(--brand-green-dark);
 }
+
+/* Add this at the bottom of Button.css */
+.btn:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

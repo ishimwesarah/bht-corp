@@ -32,9 +32,9 @@ export const knowledgeBase = [
   },
   {
     keywords: ["contact", "phone number", "email"],
-    answer: "You can reach us by phone at +250 784 589 508, or by email at info.bhtcorporation@gmail.com. We also have a contact form on our Contact Us page.",
+    answer: "You can reach us by phone at +250 784 589 508, or by email at bhtcorpor@gmail.com. We also have a contact form on our Contact Us page.",
   },
-  // Add more Q&A objects here
+  
 ];
 
 export const defaultAnswer = "While I don't have specific details about that, I can tell you that BHT Corporation specializes in technology solutions and creative design services. Would you like me to: \n1) Connect you with our team \n2) Answer a related question \n3) Provide our contact information?";

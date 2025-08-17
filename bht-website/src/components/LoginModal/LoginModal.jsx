@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaGoogle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import './LoginModal.css';
-import bhtLogo from '../../assets/logo.png'; // Make sure this is your white/light-colored logo version
+import bhtLogo from '../../assets/logo.png';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  // Clear error when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setError('');
+    }
+  }, [isOpen]);
+  
+  // Handle closing the modal with the Escape key
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.key === 'Escape') onClose();
@@ -16,11 +31,39 @@ const LoginModal = ({ isOpen, onClose }) => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Logging in with:', { email, password });
-    alert('Login functionality is in development.');
-    onClose();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to login.');
+      }
+
+      login(data); // Save user info to global context
+      onClose(); // Close the modal
+
+      // Redirect user based on their role
+      if (data.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else {
+        navigate('/client/dashboard');
+      }
+
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -41,7 +84,6 @@ const LoginModal = ({ isOpen, onClose }) => {
             transition={{ type: 'spring', stiffness: 120, damping: 15 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* --- NEW LAYOUT: FORM ON THE LEFT --- */}
             <div className="login-modal-form-section">
               <button className="login-close-btn" onClick={onClose}><FaTimes /></button>
               <h3>Client Login</h3>
@@ -55,23 +97,32 @@ const LoginModal = ({ isOpen, onClose }) => {
                   <label htmlFor="login-password">Password</label>
                   <input type="password" id="login-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                
-                <button type="submit" className="login-submit-btn">Sign In</button>
+                <div className="login-options">
+                  <label className="remember-me"><input type="checkbox" /> Remember me</label>
+                  <a href="#" className="forgot-password">Forgot password?</a>
+                </div>
+                {error && <p className="login-error-message">{error}</p>}
+                <button type="submit" className="login-submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Signing In...' : 'Sign In'}
+                </button>
               </form>
 
-              
+              <div className="login-divider"><span>OR</span></div>
+
+              <button className="google-login-btn">
+                <FaGoogle className="google-icon" />
+                Continue with Google
+              </button>
             </div>
             
-            {/* --- NEW LAYOUT: VISUAL ON THE RIGHT --- */}
             <div className="login-modal-visual">
               <img src={bhtLogo} alt="BHT Corporation Logo" className="login-modal-logo" />
               <h2>Welcome Back</h2>
               <p>Your portal to seamless service and collaboration awaits.</p>
-               <p className="login-footer-text">
+              <p className="login-footer-text">
                 Don't have an account? Your account is created by a BHT Corporation administrator.
               </p>
             </div>
-
           </motion.div>
         </motion.div>
       )}

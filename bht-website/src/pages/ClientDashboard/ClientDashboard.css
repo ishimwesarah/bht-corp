@@ -1,0 +1,22 @@
+.client-dashboard h1 { color: var(--navbar-text); }
+.client-dashboard p { color: var(--neutral-gray); margin-bottom: 2rem; }
+.dashboard-card { background: var(--clean-white); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.07); margin-bottom: 2rem; }
+.dashboard-card h3 { margin: 0 0 1.5rem 0; }
+.command-card textarea { width: 100%; border-radius: 8px; border: 1px solid #ccc; padding: 1rem; font-family: inherit; font-size: 1rem; margin-bottom: 1rem; }
+.command-card button { /* Use styles from your Button component or global styles */ }
+.command-item { display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--light-gray-bg); }
+.command-item:last-child { border-bottom: none; }
+.status { font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; }
+.status.pending { background: #fff8e1; color: #f57f17; }
+.status.completed { background: #e8f5e9; color: #2e7d32; }
+
+.field-description {
+  font-size: 0.9rem;
+  color: var(--neutral-gray);
+  margin-bottom: 0.5rem;
+}
+.command-card input[type="file"] {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

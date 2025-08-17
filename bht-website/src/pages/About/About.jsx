@@ -99,7 +99,7 @@ const About = () => {
   const teamMembers = [
     {
       image: teamMember3,
-      name: "Prof. Petov Plamen",
+      name: "Prof. Plamen",
       role: "Manager & Stategical Advisor",
       experienceLabel: "Previous Experience",
       experienceValue: "Lecturer, University of Bulgaria",

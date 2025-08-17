@@ -19,8 +19,8 @@ export default async function handler(req, res) {
   // Configure the email content
   const mailOptions = {
     from: process.env.GMAIL_USER,
-    to: 'info.bhtcorporation@gmail.com', // Your organization's email
-    replyTo: email, // This is key for easy replies
+    to: 'bhtcorpor@gmail.com', 
+    replyTo: email, 
     subject: `New Contact Form Message: ${subject}`,
     html: `
       <h2>New Message from BHT Corporation Website</h2>
