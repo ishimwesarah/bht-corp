@@ -97,22 +97,22 @@ const LoginModal = ({ isOpen, onClose }) => {
                   <label htmlFor="login-password">Password</label>
                   <input type="password" id="login-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <div className="login-options">
+                {/* <div className="login-options">
                   <label className="remember-me"><input type="checkbox" /> Remember me</label>
                   <a href="#" className="forgot-password">Forgot password?</a>
-                </div>
+                </div> */}
                 {error && <p className="login-error-message">{error}</p>}
                 <button type="submit" className="login-submit-btn" disabled={isSubmitting}>
                   {isSubmitting ? 'Signing In...' : 'Sign In'}
                 </button>
               </form>
 
-              <div className="login-divider"><span>OR</span></div>
+              {/* <div className="login-divider"><span>OR</span></div> */}
 
-              <button className="google-login-btn">
+              {/* <button className="google-login-btn">
                 <FaGoogle className="google-icon" />
                 Continue with Google
-              </button>
+              </button> */}
             </div>
             
             <div className="login-modal-visual">
