@@ -182,7 +182,7 @@ const About = () => {
         <motion.div {...fadeIn} className="about-section">
           <h2>Our Vision & Mission</h2>
           <p><strong>Vision:</strong> To become a leader in the creative industry by consistently delivering exceptional design and IT solutions that inspire and captivate audiences.</p>
-          <p><strong>Mission:</strong> We want to contribute to the spread of the kingdom of God by helping people, both by providing them with jobs and good services, and by doing charitable works.</p>
+          <p><strong>Mission:</strong> To contribute to the spread of the kingdom of God by helping people, both by providing them with jobs and good services, and by doing charitable works.</p>
         </motion.div>
 
         <motion.div {...fadeIn} className="about-section business-structure">

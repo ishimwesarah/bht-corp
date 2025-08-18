@@ -1,7 +1,10 @@
 .dashboard-container {
   display: flex;
-  height: 100vh; /* Make the container take up the full viewport height */
-  overflow: hidden; /* Prevent the whole container from scrolling */
+  height: 100vh;
+  background-color: var(--light-gray-bg);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .dashboard-sidebar {
@@ -11,10 +14,20 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* Remove the problematic pseudo-element */
 }
 
-.sidebar-header { padding: 1.5rem; text-align: center; }
-.sidebar-logo { height: 50px; }
+.sidebar-header { 
+  padding: 1.5rem; 
+  text-align: center;
+}
+
+.sidebar-logo { 
+  height: 50px;
+}
 
 .sidebar-nav {
   flex-grow: 1;
@@ -22,6 +35,7 @@
   flex-direction: column;
   padding: 1rem 0;
 }
+
 .sidebar-nav a {
   display: flex;
   align-items: center;
@@ -33,16 +47,21 @@
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
 }
+
 .sidebar-nav a:hover {
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--clean-white);
 }
+
 .sidebar-nav a.active {
   background-color: rgba(0, 91, 150, 0.3);
   color: var(--clean-white);
   border-left-color: var(--accent-gold);
 }
-.sidebar-nav a svg { font-size: 1.2rem; }
+
+.sidebar-nav a svg { 
+  font-size: 1.2rem;
+}
 
 .sidebar-footer {
   padding: 1.5rem;
@@ -51,14 +70,38 @@
   align-items: center;
   justify-content: space-between;
 }
-.user-info { display: flex; flex-direction: column; }
-.user-info span { font-weight: 600; color: var(--clean-white); }
-.user-info small { font-size: 0.8rem; }
-.logout-btn { background: none; border: none; color: #a7a7a7; font-size: 1.5rem; cursor: pointer; transition: color 0.3s ease; }
-.logout-btn:hover { color: var(--accent-gold); }
+
+.user-info { 
+  display: flex; 
+  flex-direction: column;
+}
+
+.user-info span { 
+  font-weight: 600; 
+  color: var(--clean-white);
+}
+
+.user-info small { 
+  font-size: 0.8rem;
+}
+
+.logout-btn { 
+  background: none; 
+  border: none; 
+  color: #a7a7a7; 
+  font-size: 1.5rem; 
+  cursor: pointer; 
+  transition: color 0.3s ease;
+}
+
+.logout-btn:hover { 
+  color: var(--accent-gold);
+}
 
 .dashboard-main-content {
   flex-grow: 1;
   padding: 2rem 3rem;
   overflow-y: auto;
+  background: var(--light-gray-bg);
+  /* Remove the problematic pseudo-element */
 }

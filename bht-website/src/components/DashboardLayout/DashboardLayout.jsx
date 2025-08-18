@@ -3,7 +3,7 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { FaTachometerAlt, FaClipboardList, FaUsers, FaImages, FaSignOutAlt } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
 import './DashboardLayout.css';
-import bhtLogo from '../../assets/logo.png';
+import bhtLogo from '../../assets/bht-logo.png';
 
 const DashboardLayout = () => {
   const { userInfo, logout } = useAuth();

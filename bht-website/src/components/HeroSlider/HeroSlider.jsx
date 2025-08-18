@@ -44,6 +44,13 @@ const sliderData = [
     buttonText: 'Learn About Us',
     buttonLink: '/about'
   },
+   {
+    image: slide3Img, 
+    pretitle: 'YOUR GLOBAL FUTURE AWAITS',
+    title: 'Study Abroad with Confidence and Expert Guidance',
+    buttonText: 'Discover Programs',
+    buttonLink: '/study-abroad' // <-- LINK TO THE NEW PAGE
+  },
     {
     image: slide4Img,
     pretitle: 'EMPOWERING OUR COMMUNITY',

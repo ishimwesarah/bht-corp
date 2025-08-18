@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPaperPlane, FaPlus, FaMinus, FaRobot, FaUser } from 'react-icons/fa';
-import './FAQ.css'; // We will use a separate CSS file
 
-// FAQ Item Component (kept inside for simplicity as requested)
+// FAQ Item Component
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -16,12 +15,13 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
-// Enhanced Chatbot Component (now integrated with the backend)
+// Enhanced Chatbot Component
 const EnhancedChatbot = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   useEffect(() => {
     // Initial welcome message
@@ -33,7 +33,20 @@ const EnhancedChatbot = () => {
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Only scroll within the chatbot container, not the entire page
+    if (messagesContainerRef.current && messagesEndRef.current) {
+      const container = messagesContainerRef.current;
+      const element = messagesEndRef.current;
+      
+      // Check if the element is within the chatbot container
+      if (container.contains(element)) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest'
+        });
+      }
+    }
   }, [messages]);
 
   const handleSendMessage = async () => {
@@ -46,7 +59,7 @@ const EnhancedChatbot = () => {
     setIsTyping(true);
 
     try {
-      // --- THIS IS THE REAL INTEGRATION ---
+      // Simulating API call - replace with your actual endpoint
       const response = await fetch('https://bht-backend.onrender.com/api/ai/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -90,7 +103,7 @@ const EnhancedChatbot = () => {
           <span className="online-status">Online • AI Powered</span>
         </div>
       </div>
-      <div className="chatbot-messages">
+      <div className="chatbot-messages" ref={messagesContainerRef}>
         {messages.map((msg) => (
           <div key={msg.id} className={`message-bubble ${msg.sender}`}>
             <div className="message-avatar">{msg.sender === 'bot' ? <FaRobot /> : <FaUser />}</div>
@@ -125,7 +138,6 @@ const EnhancedChatbot = () => {
   );
 };
 
-
 // Main FAQ Page Component
 const FAQ = () => {
   const faqData = [
@@ -157,6 +169,278 @@ const FAQ = () => {
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        .faq-page-container {
+          background: linear-gradient(135deg, #E0F0FF 0%, #F5F5F5 100%);
+          padding-bottom: 5rem;
+        }
+        
+        .faq-hero { 
+          text-align: center; 
+          padding: 6rem 1rem 4rem 1rem; 
+        }
+        
+        .faq-hero h1 { 
+          font-size: 2.8rem; 
+          color: #005B96; 
+          margin-bottom: 1rem; 
+        }
+        
+        .faq-hero p { 
+          font-size: 1.2rem; 
+          color: #4F4F4F; 
+          max-width: 600px; 
+          margin: 0 auto; 
+        }
+        
+        .faq-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+        
+        .faq-grid { 
+          display: grid; 
+          grid-template-columns: 1fr 1.2fr; 
+          gap: 3rem; 
+          align-items: start; 
+        }
+        
+        .faq-section-title { 
+          font-size: 1.8rem; 
+          color: #005B96; 
+          margin-bottom: 1.5rem; 
+        }
+        
+        .faq-accordion { 
+          background: #FFFFFF; 
+          border-radius: 12px; 
+          padding: 1rem; 
+          box-shadow: 0 4px 15px rgba(0,91,150,0.1); 
+        }
+        
+        .faq-item { 
+          border-bottom: 1px solid #E0F0FF; 
+          padding: 1.5rem 0.5rem; 
+        }
+        
+        .faq-item:last-child { 
+          border-bottom: none; 
+        }
+        
+        .faq-question { 
+          display: flex; 
+          justify-content: space-between; 
+          align-items: center; 
+          cursor: pointer; 
+        }
+        
+        .faq-question h4 { 
+          color: #4F4F4F; 
+          margin: 0; 
+          padding-right: 1rem; 
+          font-size: 1.1rem; 
+        }
+        
+        .faq-icon { 
+          color: #F4C430; 
+          font-size: 1.2rem; 
+        }
+        
+        .faq-answer { 
+          padding-top: 1rem; 
+          color: #4F4F4F; 
+          line-height: 1.6; 
+        }
+
+        /* Chatbot styles */
+        .chatbot-container { 
+          background: #FFFFFF; 
+          border-radius: 12px; 
+          box-shadow: 0 4px 15px rgba(0,91,150,0.1); 
+          overflow: hidden; 
+          height: 600px; 
+          display: flex; 
+          flex-direction: column;
+          position: relative;
+        }
+        
+        .chatbot-header { 
+          background: linear-gradient(135deg, #005B96 0%, #3CB371 100%); 
+          color: white; 
+          padding: 1rem; 
+          display: flex; 
+          align-items: center; 
+          gap: 0.75rem; 
+        }
+        
+        .header-info { 
+          flex: 1; 
+        }
+        
+        .chatbot-header h3 { 
+          margin: 0; 
+          font-size: 1rem; 
+        }
+        
+        .chatbot-avatar { 
+          font-size: 1.5rem; 
+        }
+        
+        .online-status { 
+          font-size: 0.8rem; 
+          opacity: 0.8; 
+        }
+        
+        .chatbot-messages { 
+          flex: 1; 
+          overflow-y: auto; 
+          overflow-x: hidden;
+          padding: 1rem; 
+          display: flex; 
+          flex-direction: column; 
+          gap: 1rem;
+          scroll-behavior: smooth;
+          position: relative;
+        }
+        
+        .message-bubble { 
+          display: flex; 
+          gap: 0.75rem; 
+          max-width: 85%; 
+        }
+        
+        .message-bubble.user { 
+          align-self: flex-end; 
+          flex-direction: row-reverse; 
+        }
+        
+        .message-bubble.bot { 
+          align-self: flex-start; 
+        }
+        
+        .message-avatar { 
+          width: 32px; 
+          height: 32px; 
+          border-radius: 50%; 
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          font-size: 0.9rem; 
+          flex-shrink: 0; 
+          color: white; 
+        }
+        
+        .message-bubble.user .message-avatar { 
+          background: #005B96; 
+        }
+        
+        .message-bubble.bot .message-avatar { 
+          background: #3CB371; 
+        }
+        
+        .message-content { 
+          background: #F5F5F5; 
+          padding: 0.75rem 1rem; 
+          border-radius: 18px; 
+          line-height: 1.5; 
+          color: #4F4F4F; 
+        }
+        
+        .message-bubble.user .message-content { 
+          background: #005B96; 
+          color: white; 
+        }
+        
+        .typing-indicator { 
+          display: flex; 
+          align-items: center; 
+          gap: 0.25rem; 
+          padding: 1rem; 
+          background: #F5F5F5; 
+          border-radius: 18px; 
+        }
+        
+        .typing-indicator span { 
+          width: 8px; 
+          height: 8px; 
+          border-radius: 50%; 
+          background: #3CB371; 
+          animation: typing 1.4s infinite; 
+        }
+        
+        .typing-indicator span:nth-child(2) { 
+          animation-delay: 0.2s; 
+        }
+        
+        .typing-indicator span:nth-child(3) { 
+          animation-delay: 0.4s; 
+        }
+        
+        .chatbot-input-container { 
+          padding: 1rem; 
+          background: #E0F0FF; 
+          border-top: 1px solid #ccc; 
+          display: flex; 
+          align-items: center; 
+          gap: 0.5rem; 
+        }
+        
+        .chatbot-input { 
+          flex: 1; 
+          padding: 0.75rem 1rem; 
+          border: 1px solid #ccc; 
+          border-radius: 20px; 
+          outline: none; 
+          font-size: 0.95rem; 
+          resize: none; 
+          min-height: 44px; 
+        }
+        
+        .chatbot-send-btn { 
+          padding: 0.75rem; 
+          background: #005B96; 
+          color: white; 
+          border: none; 
+          border-radius: 50%; 
+          cursor: pointer; 
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          width: 44px; 
+          height: 44px; 
+        }
+        
+        .chatbot-send-btn:disabled { 
+          background: #ccc; 
+          cursor: not-allowed; 
+        }
+        
+        @keyframes typing { 
+          0%, 60%, 100% { 
+            transform: translateY(0); 
+            opacity: 0.4; 
+          } 
+          30% { 
+            transform: translateY(-5px); 
+            opacity: 1; 
+          } 
+        }
+        
+        @media (max-width: 960px) {
+          .faq-grid { 
+            grid-template-columns: 1fr; 
+            gap: 2rem; 
+          }
+          .faq-accordion-wrapper { 
+            order: 1; 
+          }
+          .faq-chatbot-wrapper { 
+            order: 2; 
+          }
+        }
+      `}</style>
     </div>
   );
 };

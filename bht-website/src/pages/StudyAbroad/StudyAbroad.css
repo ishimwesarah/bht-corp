@@ -1,0 +1,179 @@
+
+
+/* ================= Hero Section ================= */
+.sa-hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url('../../assets/study-abroad-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sa-hero-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 91, 150, 0.5), rgba(0, 74, 124, 0.7));
+  z-index: 1;
+}
+
+.sa-hero .container {
+  position: relative;
+  z-index: 2; /* ensures text appears above the overlay */
+  text-align: center;
+  color: var(--clean-white);
+}
+
+.sa-hero h1 {
+  font-size: 3rem;
+  color: #ffffff;  /* pure white */
+  margin-bottom: 1rem;
+}
+
+.sa-hero p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9); /* softer white for subtitle */
+  margin-bottom: 2rem;
+}
+
+/* ================= Process Section ================= */
+.sa-process-section {
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.sa-process-section h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  background: var(--clean-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.process-icon {
+  font-size: 3rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.process-step h3 {
+  color: var(--navbar-text);
+  margin-bottom: 1rem;
+}
+
+.process-step p {
+  color: var(--neutral-gray);
+}
+
+/* ================= Destinations Section ================= */
+.sa-destinations-section {
+  padding: 5rem 1rem;
+  background: var(--light-gray-bg);
+}
+
+.sa-destinations-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.destination-card {
+  height: 350px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  color: var(--clean-white);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.destination-card:hover {
+  transform: scale(1.03);
+}
+
+.destination-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+}
+
+.destination-card span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+/* ================= Testimonial Section ================= */
+.sa-testimonial-section {
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.testimonial-quote-sa {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--neutral-gray);
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.testimonial-author-sa {
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* ================= CTA Section ================= */
+.sa-cta-section {
+  padding: 5rem 1rem;
+  background: linear-gradient(to right, var(--primary-blue), var(--navbar-text));
+  color: var(--clean-white);
+  text-align: center;
+}
+
+.sa-cta-section h2 {
+  color: var(--clean-white);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sa-cta-section p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 960px) {
+  .process-grid, .destinations-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
