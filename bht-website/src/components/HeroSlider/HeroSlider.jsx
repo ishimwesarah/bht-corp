@@ -21,6 +21,7 @@ import slide1Img from '../../assets/homee.jpg';
 import slide3Img from '../../assets/serv.jpg';
 import slide4Img from '../../assets/sky.jpg';
 import slide5Img from '../../assets/inters.jpg';
+import slide6Img from '../../assets/int.jpg';
 
 const sliderData = [
   {
@@ -45,11 +46,11 @@ const sliderData = [
     buttonLink: '/about'
   },
    {
-    image: slide3Img, 
+    image: slide6Img, 
     pretitle: 'YOUR GLOBAL FUTURE AWAITS',
     title: 'Study Abroad with Confidence and Expert Guidance',
     buttonText: 'Discover Programs',
-    buttonLink: '/study-abroad' // <-- LINK TO THE NEW PAGE
+    buttonLink: '/study-abroad' 
   },
     {
     image: slide4Img,

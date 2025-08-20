@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { FaGraduationCap, FaGlobeEurope, FaFileSignature, FaPassport } from 'react-icons/fa';
 import './StudyAbroad.css';
 import Button from '../../components/Button/Button';
-import destinationCanada from '../../assets/inters.jpg'; // Add example images to assets
-import destinationUK from '../../assets/inters.jpg';
-import destinationUSA from '../../assets/inters.jpg';
+import destinationCanada from '../../assets/abroad.jpg'; // Add example images to assets
+import destinationUK from '../../assets/uk.jpg';
+import destinationUSA from '../../assets/usa.jpg';
 
 const StudyAbroad = () => {
   return (
