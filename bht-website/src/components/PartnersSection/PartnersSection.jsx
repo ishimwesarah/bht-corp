@@ -6,6 +6,7 @@ import './PartnersSection.css';
 import logo1 from '../../assets/cep.jpg';
 import logo2 from '../../assets/atha.jpg';
 import logo3 from '../../assets/hb.jpg';
+import logo4 from '../../assets/helping.jpg';
 // import logoMarriott from '../../assets/marriot-logo.png';
 // import logoRwandair from '../../assets/rwandair.jpg';
 // import logoIhuzo from '../../assets/ihuzo.jpg';
@@ -15,6 +16,7 @@ const partners = [
   { name: 'CEP', logo: logo1 },
   { name: 'MTN Rwanda', logo: logo2 },
   { name: 'Bank of Kigali', logo: logo3 },
+  { name: 'Helping Heart', logo: logo4 },
   // { name: 'Kigali Marriott Hotel', logo: logoMarriott },
   // { name: 'RwandAir', logo: logoRwandair },
   // { name: 'Ihuzo', logo: logoIhuzo },
